@@ -10,9 +10,10 @@ export interface PasswordProps {
   generatedPassword: string;
 }
 
-export type HandleCreatePasswordProps = {
+export type HandleGeneratePasswordProps = {
   digits: boolean;
   uppercase: boolean;
   lowercase: boolean;
   specialCharacters: boolean;
+  passLength: number;
 };

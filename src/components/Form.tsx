@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Password } from "./Password";
-import { handleCreatePassword } from "../helpers/handleCreatePassword";
+import { handleGeneratePassword } from "../helpers/handleGeneratePassword";
 
 import { InitialFormState } from "../interfaces/types";
 import {
@@ -43,8 +43,9 @@ export const Form: React.FC = () => {
     ) {
       console.log("must select one option");
     }
-    setGeneratedPassword(handleCreatePassword(formState));
-    console.log(generatedPassword);
+
+    const finalPassword = handleGeneratePassword(formState);
+    setGeneratedPassword(finalPassword);
   };
   return (
     <Box>
