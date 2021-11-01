@@ -1,10 +1,11 @@
 import * as React from "react";
 import { ChakraProvider, Box, theme } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
+// import { ColorModeSwitcher } from "./ColorModeSwitcher";
 
 //my components
 import { Navbar } from "./components/NavBar";
 import { WelcomeComponent } from "./components/Welcome";
+import { Generator } from "./components/Generator";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -12,6 +13,7 @@ export const App = () => (
       <Navbar />
       <WelcomeComponent />
       <Box borderBottom="1px solid #fff"></Box>
+      <Generator />
     </Box>
   </ChakraProvider>
 );
