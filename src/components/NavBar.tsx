@@ -11,14 +11,17 @@ export const Navbar: React.FC = (props) => (
     w="100%"
     h="80px"
     bgGradient="linear(to-l, #0BAB64,#3BB78F)"
+    borderBottom="1px solid #fff"
   >
     <Flex gridGap="2" align="center">
-      <Image src={Safe} boxSize="50px" alt="logo" />
-      <Heading size="lg">Privacy Procter</Heading>
+      <Image src={Safe} boxSize="40px" alt="logo" />
+      <Heading fontSize={{ base: "15px", md: "30px", lg: "40px" }}>
+        Privacy Procter
+      </Heading>
     </Flex>
     <Spacer />
 
-    <Flex fontSize="xl" gridGap="4">
+    <Flex fontSize={{ base: "18px", md: "30px" }} gridGap="4" cursor="pointer">
       <Text>Log In</Text>
 
       <Text>Sign Up</Text>
