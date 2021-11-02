@@ -25,8 +25,6 @@ export const Form: React.FC = () => {
   const [formState, setFormState] =
     React.useState<InitialFormState>(initialFormState);
 
-  const [generatedPassword, setGeneratedPassword] = React.useState<string>("");
-
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -45,12 +43,16 @@ export const Form: React.FC = () => {
     }
 
     const finalPassword = handleGeneratePassword(formState);
-    setGeneratedPassword(finalPassword);
+    setFormState({ ...formState, generatedPassword: finalPassword });
+    console.log(formState.generatedPassword);
   };
   return (
     <Box>
       <Box>
-        <Password generatedPassword={generatedPassword} />
+        <Password
+          generatedPassword={formState.generatedPassword}
+          onChange={onChangeHandler}
+        />
         <form onSubmit={submitHandler}>
           <FormControl>
             <FormLabel display="flex" align="center" justify="center">

@@ -1,4 +1,5 @@
 export interface InitialFormState {
+  generatedPassword: string;
   passLength: number;
   digits: boolean;
   uppercase: boolean;
@@ -8,6 +9,7 @@ export interface InitialFormState {
 
 export interface PasswordProps {
   generatedPassword: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export type HandleGeneratePasswordProps = {
