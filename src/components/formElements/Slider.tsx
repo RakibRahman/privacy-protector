@@ -41,7 +41,13 @@ export const SliderComponent: React.FC<SliderProps> = ({
         >
           <SliderTrack bg="red.100">
             <SliderFilledTrack
-              bg={formState.passLength < 20 ? "red" : "green"}
+              bg={
+                formState.passLength < 20
+                  ? "red"
+                  : formState.passLength > 45
+                  ? "orange"
+                  : "green"
+              }
             />
           </SliderTrack>
           <SliderThumb boxSize={6}>
@@ -51,7 +57,13 @@ export const SliderComponent: React.FC<SliderProps> = ({
         <Flex fontSize="lg" align="center" gridGap="2">
           <Text>Password Length:</Text>
           <Text
-            color={formState.passLength < 20 ? "red" : "green"}
+            color={
+              formState.passLength < 20
+                ? "red"
+                : formState.passLength > 45
+                ? "orange"
+                : "green"
+            }
             fontWeight="bold"
           >
             {formState.passLength}

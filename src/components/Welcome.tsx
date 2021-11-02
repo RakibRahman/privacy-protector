@@ -34,7 +34,8 @@ export const WelcomeComponent = () => {
       </Box>
       <VStack px="2" spacing="10px">
         <Text fontSize="xl">
-          The Privacy Procter will help you to create a <strong>secure </strong>
+          The Privacy Protector will help you to create a{" "}
+          <strong>secure </strong>
           password
         </Text>
         <Text color="#fff">

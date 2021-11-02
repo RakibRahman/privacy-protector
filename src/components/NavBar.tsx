@@ -1,5 +1,6 @@
-import { Flex, Spacer, Image, Text, Heading } from "@chakra-ui/react";
 import * as React from "react";
+import { Flex, Spacer, Image, Text, Heading } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Safe from "../assets/safe.png";
 
 export const Navbar: React.FC = (props) => (
@@ -16,16 +17,15 @@ export const Navbar: React.FC = (props) => (
     <Flex gridGap="2" align="center">
       <Image src={Safe} boxSize="40px" alt="logo" />
       <Heading fontSize={{ base: "15px", md: "30px", lg: "40px" }}>
-        Privacy Procter
+        <Link to="/"> Privacy Protector</Link>
       </Heading>
     </Flex>
     <Spacer />
 
     <Flex fontSize={{ base: "18px", md: "30px" }} gridGap="4" cursor="pointer">
-      <Text>Tips</Text>
-      <Text>Log In</Text>
-
-      <Text>Sign Up</Text>
+      <Link to="/tips">Tips</Link>
+      <Text>|</Text>
+      <Link to="/bookmarks">Bookmarks</Link>
     </Flex>
   </Flex>
 );

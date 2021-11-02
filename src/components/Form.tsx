@@ -5,9 +5,9 @@ import { Letters } from "./formElements/Letters";
 import { Digits } from "./formElements/Digits";
 import { SpecialCharacters } from "./formElements/SpecialCharacters";
 import { handleGeneratePassword } from "../helpers/handleGeneratePassword";
-
 import { InitialFormState } from "../interfaces/types";
 import { Box, Button } from "@chakra-ui/react";
+import useToaster from "../helpers/useToaster";
 
 export const Form: React.FC = () => {
   const initialFormState = {
@@ -18,6 +18,8 @@ export const Form: React.FC = () => {
     lowercase: true,
     specialCharacters: true,
   };
+  const { toast } = useToaster("Password created.", "Keep your password safe");
+
   const [formState, setFormState] =
     React.useState<InitialFormState>(initialFormState);
 
@@ -41,6 +43,7 @@ export const Form: React.FC = () => {
     const finalPassword = handleGeneratePassword(formState);
     setFormState({ ...formState, generatedPassword: finalPassword });
     console.log(formState.generatedPassword.length);
+    toast();
   };
   return (
     <Box>
