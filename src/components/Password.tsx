@@ -19,7 +19,7 @@ export const Password: React.FC<PasswordProps> = ({
       <Input
         type="text"
         w="70%"
-        minH="50px"
+        minH="40px"
         border="1px solid #fff"
         borderRadius="xl"
         p="2"
@@ -33,10 +33,12 @@ export const Password: React.FC<PasswordProps> = ({
         borderRadius="xl"
         onClick={onCopy}
         w="150px"
+        minH="40px"
         textAlign="center"
-        color={hasCopied ? "red" : "black"}
+        color={hasCopied ? "white" : "black"}
+        background={hasCopied ? "#c334d9" : "white"}
       >
-        {hasCopied ? "Copied" : "Copy to clipboard"}
+        {hasCopied ? "Copied" : "Copy to Clipboard"}
       </Button>
     </Flex>
   );

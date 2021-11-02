@@ -1,22 +1,23 @@
 import * as React from "react";
 import { Password } from "./Password";
+import { SliderComponent } from "./formElements/Slider";
 import { handleGeneratePassword } from "../helpers/handleGeneratePassword";
 
 import { InitialFormState } from "../interfaces/types";
 import {
   Box,
   FormLabel,
-  Input,
   Button,
   Text,
   Checkbox,
   FormControl,
+  Flex,
 } from "@chakra-ui/react";
 
 export const Form: React.FC = () => {
   const initialFormState = {
     generatedPassword: "",
-    passLength: 8,
+    passLength: 20,
     digits: true,
     uppercase: true,
     lowercase: true,
@@ -44,30 +45,23 @@ export const Form: React.FC = () => {
 
     const finalPassword = handleGeneratePassword(formState);
     setFormState({ ...formState, generatedPassword: finalPassword });
-    console.log(formState.generatedPassword);
+    console.log(formState.generatedPassword.length);
   };
   return (
     <Box>
       <Box>
-        <Password
-          generatedPassword={formState.generatedPassword}
-          onChange={onChangeHandler}
-        />
         <form onSubmit={submitHandler}>
-          <FormControl>
-            <FormLabel display="flex" align="center" justify="center">
-              <Input
-                type="range"
-                w="1/2"
-                value={formState.passLength}
-                name="passLength"
-                onChange={onChangeHandler}
-              />
-              <Text>{formState.passLength}</Text>
-              <Text>Password Length</Text>
-            </FormLabel>
-          </FormControl>
-          <FormControl display="flex">
+          <Password
+            generatedPassword={formState.generatedPassword}
+            onChange={onChangeHandler}
+          />
+          <Flex>
+            <SliderComponent
+              formState={formState}
+              setFormState={setFormState}
+            />
+          </Flex>
+          <Flex>
             <FormLabel>
               <Checkbox
                 colorScheme="green"
@@ -80,8 +74,8 @@ export const Form: React.FC = () => {
             </FormLabel>
 
             <Text>(0..9)</Text>
-          </FormControl>
-          <FormControl display="flex">
+          </Flex>
+          <Flex>
             <FormLabel>
               <Checkbox
                 colorScheme="green"
@@ -94,7 +88,7 @@ export const Form: React.FC = () => {
             </FormLabel>
 
             <Text>(A..Z)</Text>
-          </FormControl>
+          </Flex>
           <FormControl display="flex">
             <FormLabel>
               <Checkbox
@@ -109,7 +103,7 @@ export const Form: React.FC = () => {
 
             <Text>(a..z)</Text>
           </FormControl>
-          <FormControl display="flex">
+          <Flex>
             <FormLabel>
               <Checkbox
                 colorScheme="green"
@@ -122,7 +116,7 @@ export const Form: React.FC = () => {
             </FormLabel>
 
             <Text>(~`@#$*...)</Text>
-          </FormControl>
+          </Flex>
 
           <Button type="submit">Generate Password</Button>
         </form>
