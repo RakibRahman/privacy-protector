@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormElementProps } from "../../interfaces/types";
+import { SliderProps } from "../../interfaces/types";
 
 import {
   Flex,
@@ -11,10 +11,10 @@ import {
   Box,
   VStack,
 } from "@chakra-ui/react";
-import { MdGraphicEq } from "react-icons/md";
+
 import { MdSettingsEthernet } from "react-icons/md";
 
-export const SliderComponent: React.FC<FormElementProps> = ({
+export const SliderComponent: React.FC<SliderProps> = ({
   formState,
   setFormState,
 }) => {

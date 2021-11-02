@@ -24,6 +24,7 @@ export const WelcomeComponent = () => {
         border="1px solid white"
       >
         <Image
+          className="vibrate-1"
           src={Emergency}
           alt="background_abstract"
           w="80%"

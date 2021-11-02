@@ -13,6 +13,10 @@ export interface PasswordProps {
 }
 export interface FormElementProps {
   formState: InitialFormState;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+export interface SliderProps {
+  formState: InitialFormState;
   setFormState: React.Dispatch<React.SetStateAction<any>>;
 }
 export type HandleGeneratePasswordProps = {
