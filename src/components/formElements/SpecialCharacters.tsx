@@ -9,7 +9,7 @@ export const SpecialCharacters: React.FC<FormElementProps> = ({
 }) => {
   return (
     <Box>
-      <Flex>
+      <Flex align="center" justify="space-between" w="52%">
         <FormLabel>
           <Checkbox
             colorScheme="green"
@@ -21,7 +21,12 @@ export const SpecialCharacters: React.FC<FormElementProps> = ({
           </Checkbox>
         </FormLabel>
 
-        <Text>(~`@#$*...)</Text>
+        <Text
+          color={formState.specialCharacters ? "green" : "red"}
+          fontWeight="bold"
+        >
+          (~`@#$*...)
+        </Text>
       </Flex>
     </Box>
   );

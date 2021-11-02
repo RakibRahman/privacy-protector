@@ -19,7 +19,13 @@ export const SliderComponent: React.FC<SliderProps> = ({
   setFormState,
 }) => {
   return (
-    <Flex w="100%" gridGap="5" flexDirection="column" mt="2">
+    <Flex
+      w="100%"
+      gridGap="5"
+      flexDirection="column"
+      my="2"
+      borderBottom="1px solid #fff"
+    >
       <VStack>
         <Slider
           w="90%"
@@ -42,9 +48,15 @@ export const SliderComponent: React.FC<SliderProps> = ({
             <Box color="tomato" as={MdSettingsEthernet} />
           </SliderThumb>
         </Slider>
-        <Text>{formState.passLength}</Text>
-
-        <Text fontSize="lg">Password Length</Text>
+        <Flex fontSize="lg" align="center" gridGap="2">
+          <Text>Password Length:</Text>
+          <Text
+            color={formState.passLength < 20 ? "red" : "green"}
+            fontWeight="bold"
+          >
+            {formState.passLength}
+          </Text>
+        </Flex>
       </VStack>
     </Flex>
   );

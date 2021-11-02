@@ -8,7 +8,7 @@ export const Letters: React.FC<FormElementProps> = ({
 }) => {
   return (
     <Box>
-      <Flex>
+      <Flex align="center" justify="space-between" w="50%">
         <FormLabel>
           <Checkbox
             colorScheme="green"
@@ -20,9 +20,11 @@ export const Letters: React.FC<FormElementProps> = ({
           </Checkbox>
         </FormLabel>
 
-        <Text>(A..Z)</Text>
+        <Text color={formState.uppercase ? "green" : "red"} fontWeight="bold">
+          (A..Z)
+        </Text>
       </Flex>
-      <Flex>
+      <Flex align="center" justify="space-between" w="50%">
         <FormLabel>
           <Checkbox
             colorScheme="green"
@@ -34,7 +36,9 @@ export const Letters: React.FC<FormElementProps> = ({
           </Checkbox>
         </FormLabel>
 
-        <Text>(a..z)</Text>
+        <Text color={formState.lowercase ? "green" : "red"} fontWeight="bold">
+          (a..z)
+        </Text>
       </Flex>
     </Box>
   );
