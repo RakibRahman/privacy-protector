@@ -16,13 +16,7 @@ export const Password: React.FC<PasswordProps> = ({
 }) => {
   const { hasCopied, onCopy } = useClipboard(generatedPassword);
   const { toast } = useToaster("Password copied", "Keep your password safe");
-  // const toast = useToast({
-  //   title: "Password created.",
-  //   description: "Keep your password safe",
-  //   status: "success",
-  //   duration: 3000,
-  //   isClosable: true,
-  // });
+
   return (
     <Flex my="5px" align="center" justify="center">
       <Input
@@ -45,8 +39,8 @@ export const Password: React.FC<PasswordProps> = ({
         w="150px"
         minH="40px"
         textAlign="center"
-        color={hasCopied ? "white" : "black"}
-        background={hasCopied ? "#c334d9" : "white"}
+        color={hasCopied ? "#fdc51a" : "white"}
+        background={hasCopied ? "#c334d9" : "#cb4e00"}
       >
         {hasCopied ? "Copied" : "Copy to Clipboard"}
       </Button>

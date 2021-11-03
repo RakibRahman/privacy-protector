@@ -19,6 +19,10 @@ export const Form: React.FC = () => {
     specialCharacters: true,
   };
   const { toast } = useToaster("Password created.", "Keep your password safe");
+  const { toast: toastError } = useToaster(
+    "Password not created.",
+    "Must Select atleast one option"
+  );
 
   const [formState, setFormState] =
     React.useState<InitialFormState>(initialFormState);
@@ -37,27 +41,38 @@ export const Form: React.FC = () => {
       !formState.lowercase &&
       !formState.specialCharacters
     ) {
-      console.log("must select one option");
+      toastError({ status: "error" });
     }
 
     const finalPassword = handleGeneratePassword(formState);
     setFormState({ ...formState, generatedPassword: finalPassword });
-    console.log(formState.generatedPassword.length);
-    toast();
+    if (formState.generatedPassword.length >= 8) {
+      toast();
+    }
   };
   return (
-    <Box>
-      <form onSubmit={submitHandler}>
-        <Password
-          generatedPassword={formState.generatedPassword}
-          onChange={onChangeHandler}
-        />
-        <SliderComponent formState={formState} setFormState={setFormState} />
-        <Letters formState={formState} onChange={onChangeHandler} />
-        <Digits formState={formState} onChange={onChangeHandler} />
-        <SpecialCharacters formState={formState} onChange={onChangeHandler} />
+    <Box w="100%">
+      <form onSubmit={submitHandler} className="formGenerator">
+        <Box>
+          <Password
+            generatedPassword={formState.generatedPassword}
+            onChange={onChangeHandler}
+          />
+          <SliderComponent formState={formState} setFormState={setFormState} />
+          <Letters formState={formState} onChange={onChangeHandler} />
+          <Digits formState={formState} onChange={onChangeHandler} />
+          <SpecialCharacters formState={formState} onChange={onChangeHandler} />
+        </Box>
 
-        <Button type="submit">Generate Password</Button>
+        <Button
+          type="submit"
+          bg="#1BAF72"
+          color="#ffffff"
+          fontSize="20px"
+          letterSpacing="1px"
+        >
+          Generate Password
+        </Button>
       </form>
     </Box>
   );

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FormElementProps } from "../../interfaces/types";
 
-import { Box, Flex, Text, FormLabel, Checkbox } from "@chakra-ui/react";
+import { Box, Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 export const Letters: React.FC<FormElementProps> = ({
   formState,
   onChange,
@@ -9,15 +9,15 @@ export const Letters: React.FC<FormElementProps> = ({
   return (
     <Box>
       <Flex align="center" justify="space-between" w="50%">
-        <FormLabel>
-          <Checkbox
+        <FormLabel htmlFor="uppercase">
+          <Switch
             colorScheme="green"
             name="uppercase"
             defaultChecked={formState.uppercase}
             onChange={onChange}
           >
             Upper Case
-          </Checkbox>
+          </Switch>
         </FormLabel>
 
         <Text color={formState.uppercase ? "green" : "red"} fontWeight="bold">
@@ -25,15 +25,15 @@ export const Letters: React.FC<FormElementProps> = ({
         </Text>
       </Flex>
       <Flex align="center" justify="space-between" w="50%">
-        <FormLabel>
-          <Checkbox
+        <FormLabel htmlFor="lowercase">
+          <Switch
             colorScheme="green"
             name="lowercase"
             defaultChecked={formState.lowercase}
             onChange={onChange}
           >
             Lower Case
-          </Checkbox>
+          </Switch>
         </FormLabel>
 
         <Text color={formState.lowercase ? "green" : "red"} fontWeight="bold">

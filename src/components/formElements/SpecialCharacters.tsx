@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FormElementProps } from "../../interfaces/types";
 
-import { Box, Flex, Text, FormLabel, Checkbox } from "@chakra-ui/react";
+import { Box, Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 
 export const SpecialCharacters: React.FC<FormElementProps> = ({
   formState,
@@ -11,14 +11,14 @@ export const SpecialCharacters: React.FC<FormElementProps> = ({
     <Box>
       <Flex align="center" justify="space-between" w="52%">
         <FormLabel>
-          <Checkbox
+          <Switch
             colorScheme="green"
             name="specialCharacters"
             defaultChecked={formState.specialCharacters}
             onChange={onChange}
           >
             Special Characters
-          </Checkbox>
+          </Switch>
         </FormLabel>
 
         <Text

@@ -23,9 +23,9 @@ export const Navbar: React.FC = (props) => (
     <Spacer />
 
     <Flex fontSize={{ base: "18px", md: "30px" }} gridGap="4" cursor="pointer">
-      <Link to="/tips">Tips</Link>
-      <Text>|</Text>
       <Link to="/bookmarks">Bookmarks</Link>
+      <Text>|</Text>
+      <Link to="/tips">Tips</Link>
     </Flex>
   </Flex>
 );

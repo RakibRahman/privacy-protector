@@ -9,6 +9,7 @@ export const Generator: React.FC = () => {
       <Box borderBottom="1px solid #fff"></Box>
 
       <Box
+        className="generator"
         border="1px solid black"
         borderRadius="xl"
         w={{ sm: "100%", lg: "600px" }}
