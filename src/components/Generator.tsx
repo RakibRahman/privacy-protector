@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Form } from "./Form";
-import { Box, FormControl } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { WelcomeComponent } from "./Welcome";
 export const Generator: React.FC = () => {
   return (

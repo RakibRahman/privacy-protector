@@ -26,6 +26,20 @@ input:focus {
   border: none;
 }
 
+/* Tips Component */
+.tips h2 {
+  color: #1db074;
+}
+.return__home {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: #1db074;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+/* Animations */
 .vibrate-1 {
   -webkit-animation: vibrate-1 0.3s linear infinite both;
   animation: vibrate-1 1s linear infinite both;

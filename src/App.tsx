@@ -4,13 +4,13 @@ import { ChakraProvider, Box, theme } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //my components
 import { Navbar } from "./components/NavBar";
-
+import { Footer } from "./components/Footer";
 import { Generator } from "./components/Generator";
 import { Bookmarks } from "./components/Bookmarks";
 import { Tips } from "./components/Tips";
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box pb="10">
+    <Box>
       <Router>
         <Navbar />
         <Switch>
@@ -18,6 +18,7 @@ export const App = () => (
           <Route path="/bookmarks" component={Bookmarks} />
           <Route path="/tips" component={Tips} />
         </Switch>
+        <Footer />
       </Router>
     </Box>
   </ChakraProvider>

@@ -11,7 +11,7 @@ import {
 import { Link as ReactLink } from "react-router-dom";
 export const Tips = () => {
   return (
-    <Box w="80%" mx="auto" p="4">
+    <Box w="80%" mx="auto" p="4" className="tips">
       <Flex flexDirection="column" gridGap="2" mb="2">
         <Heading>
           7 Password Experts on How to Lock Down Your Online Security
@@ -213,7 +213,9 @@ export const Tips = () => {
           Credit
         </Link>
 
-        <ReactLink to="/">Back To Home</ReactLink>
+        <ReactLink className="return__home" to="/">
+          Back To Home
+        </ReactLink>
       </Flex>
     </Box>
   );

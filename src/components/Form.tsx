@@ -16,12 +16,12 @@ export const Form: React.FC = () => {
     digits: true,
     uppercase: true,
     lowercase: true,
-    specialCharacters: true,
+    specialCharacters: false,
   };
   const { toast } = useToaster("Password created.", "Keep your password safe");
   const { toast: toastError } = useToaster(
-    "Password not created.",
-    "Must Select atleast one option"
+    "Password Not Created.",
+    "Must Select Atleast One Option"
   );
 
   const [formState, setFormState] =
