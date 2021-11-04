@@ -33,7 +33,7 @@ export const SliderComponent: React.FC<SliderProps> = ({
           aria-label="password length"
           defaultValue={formState.passLength}
           colorScheme="telegram"
-          min={8}
+          min={3}
           max={100}
           onChange={(value) =>
             setFormState({ ...formState, passLength: value })

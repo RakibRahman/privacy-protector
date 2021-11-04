@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Indicator } from "./Indicator";
 import { Password } from "./Password";
 import { SliderComponent } from "./formElements/Slider";
 import { Letters } from "./formElements/Letters";
@@ -8,7 +9,7 @@ import { handleGeneratePassword } from "../helpers/handleGeneratePassword";
 import { InitialFormState } from "../interfaces/types";
 import { Box, Button } from "@chakra-ui/react";
 import useToaster from "../helpers/useToaster";
-
+import usePasswordChecker from "../helpers/usePasswordChecker";
 export const Form: React.FC = () => {
   const initialFormState = {
     generatedPassword: "",
@@ -18,6 +19,7 @@ export const Form: React.FC = () => {
     lowercase: true,
     specialCharacters: false,
   };
+
   const { toast } = useToaster("Password created.", "Keep your password safe");
   const { toast: toastError } = useToaster(
     "Password Not Created.",
@@ -26,6 +28,7 @@ export const Form: React.FC = () => {
 
   const [formState, setFormState] =
     React.useState<InitialFormState>(initialFormState);
+  // const { passwordStrength } = usePasswordChecker(formState.generatedPassword);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value =
@@ -53,6 +56,7 @@ export const Form: React.FC = () => {
   return (
     <Box w="100%">
       <form onSubmit={submitHandler} className="formGenerator">
+        <Indicator password={formState.generatedPassword} />
         <Box>
           <Password
             generatedPassword={formState.generatedPassword}

@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Flex,
-  Button,
-  Spacer,
-  useClipboard,
-  Input,
-  useToast,
-} from "@chakra-ui/react";
+import { Flex, Button, Spacer, useClipboard, Input } from "@chakra-ui/react";
 
 import { PasswordProps } from "../interfaces/types";
 import useToaster from "../helpers/useToaster";
