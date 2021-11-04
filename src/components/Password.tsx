@@ -11,10 +11,10 @@ export const Password: React.FC<PasswordProps> = ({
   const { toast } = useToaster("Password copied", "Keep your password safe");
 
   return (
-    <Flex my="5px" align="center" justify="center">
+    <Flex my="5px" align="center" justify="center" flexWrap="wrap" gridGap="1">
       <Input
         type="text"
-        w="70%"
+        w="80%"
         minH="40px"
         p="2"
         value={generatedPassword}
