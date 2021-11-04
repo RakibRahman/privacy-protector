@@ -30,7 +30,6 @@ const usePasswordChecker = (str: string) => {
     ) {
       setPasswordStrength("strong");
     }
-    console.log(size);
   }, [str, passwordStrength]);
   return { passwordStrength };
 };

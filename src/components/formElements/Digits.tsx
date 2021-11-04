@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FormElementProps } from "../../interfaces/types";
 
-import { Box, Flex, Text, FormLabel, Checkbox, Switch } from "@chakra-ui/react";
+import { Box, Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 
 export const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
   return (

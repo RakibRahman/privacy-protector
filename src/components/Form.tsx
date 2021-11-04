@@ -29,16 +29,18 @@ export const Form: React.FC = () => {
   const [formState, setFormState] =
     React.useState<InitialFormState>(initialFormState);
   const [finalPassword, setFinalPassword] = React.useState<string>("");
+
+  React.useEffect(() => {
+    const _finalPassword = handleGeneratePassword(formState);
+    setFinalPassword(_finalPassword);
+  }, [formState]);
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
   };
-  React.useEffect(() => {
-    const _finalPassword = handleGeneratePassword(formState);
-    setFinalPassword(_finalPassword);
-    console.log(formState.generatedPassword);
-  }, [formState]);
+
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (
