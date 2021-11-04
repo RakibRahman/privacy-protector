@@ -7,10 +7,7 @@ interface propTypes {
 }
 export const Indicator: React.FC<propTypes> = ({ password }) => {
   const { passwordStrength } = usePasswordChecker(password);
-  React.useEffect(() => {
-    console.log("object");
-    console.log(passwordStrength);
-  }, [passwordStrength]);
+
   return (
     <Box>
       <Flex align="center" gridGap="1" fontSize="20">

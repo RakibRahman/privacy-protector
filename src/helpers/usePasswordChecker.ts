@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Password } from "../components/Password";
+
 const regExpWeak = /[a-z]/;
 const regExpMedium = /\d+/;
 const regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
@@ -15,8 +15,7 @@ const usePasswordChecker = (str: string) => {
       setPasswordStrength("weak");
     }
     if (
-      size > 6 &&
-      size <= 8 &&
+      size >= 6 &&
       ((regExpWeak.test(str) && regExpMedium.test(str)) ||
         (regExpMedium.test(str) && regExpStrong.test(str)) ||
         (regExpWeak.test(str) && regExpStrong.test(str)))
@@ -31,7 +30,7 @@ const usePasswordChecker = (str: string) => {
     ) {
       setPasswordStrength("strong");
     }
-    console.log(passwordStrength);
+    console.log(size);
   }, [str, passwordStrength]);
   return { passwordStrength };
 };

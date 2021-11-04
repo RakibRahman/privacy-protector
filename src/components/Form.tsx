@@ -9,7 +9,7 @@ import { handleGeneratePassword } from "../helpers/handleGeneratePassword";
 import { InitialFormState } from "../interfaces/types";
 import { Box, Button } from "@chakra-ui/react";
 import useToaster from "../helpers/useToaster";
-import usePasswordChecker from "../helpers/usePasswordChecker";
+
 export const Form: React.FC = () => {
   const initialFormState = {
     generatedPassword: "",
@@ -17,7 +17,7 @@ export const Form: React.FC = () => {
     digits: true,
     uppercase: true,
     lowercase: true,
-    specialCharacters: false,
+    specialCharacters: true,
   };
 
   const { toast } = useToaster("Password created.", "Keep your password safe");
@@ -28,14 +28,17 @@ export const Form: React.FC = () => {
 
   const [formState, setFormState] =
     React.useState<InitialFormState>(initialFormState);
-  // const { passwordStrength } = usePasswordChecker(formState.generatedPassword);
-
+  const [finalPassword, setFinalPassword] = React.useState<string>("");
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
   };
-
+  React.useEffect(() => {
+    const _finalPassword = handleGeneratePassword(formState);
+    setFinalPassword(_finalPassword);
+    console.log(formState.generatedPassword);
+  }, [formState]);
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (
@@ -46,9 +49,8 @@ export const Form: React.FC = () => {
     ) {
       toastError({ status: "error" });
     }
-
-    const finalPassword = handleGeneratePassword(formState);
     setFormState({ ...formState, generatedPassword: finalPassword });
+
     if (formState.generatedPassword.length >= 8) {
       toast();
     }
