@@ -4,6 +4,13 @@ const regExpWeak = /[a-z]/;
 const regExpMedium = /\d+/;
 const regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
+const oneLowerCaseLetter = /(?=.+[a-z])/;
+const oneUpperCaseLetter = /(?=.+[A-Z])/;
+const oneDigit = /(?=.+[0-9])/;
+const oneSpecialCharacters = /(?=.+[!@#$%^&*])/;
+const minimumCharacters = /(?=.{8,})/;
+
+
 const usePasswordChecker = (str: string) => {
   const [passwordStrength, setPasswordStrength] = useState<string>("");
   useEffect(() => {
