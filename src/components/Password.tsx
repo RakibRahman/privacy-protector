@@ -24,6 +24,7 @@ export const Password: React.FC<PasswordProps> = ({
 
       <Spacer />
       <Button
+        cursor="copy"
         borderRadius="xl"
         onClick={() => {
           onCopy();

@@ -10,6 +10,9 @@ import {
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
 export const Tips = () => {
+  React.useEffect(() => {
+    document.title = "Tips || Privacy Protector";
+  }, []);
   return (
     <Box w="80%" mx="auto" p="4" className="tips">
       <Flex flexDirection="column" gridGap="2" mb="2">
