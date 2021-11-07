@@ -7,9 +7,8 @@ const regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 const oneLowerCaseLetter = /(?=.+[a-z])/;
 const oneUpperCaseLetter = /(?=.+[A-Z])/;
 const oneDigit = /(?=.+[0-9])/;
-const oneSpecialCharacters = /(?=.+[!@#$%^&*])/;
+const oneSpecialCharacter = /(?=.+[!@#$%^&*])/;
 const minimumCharacters = /(?=.{8,})/;
-
 
 const usePasswordChecker = (str: string) => {
   const [passwordStrength, setPasswordStrength] = useState<string>("");
@@ -37,6 +36,12 @@ const usePasswordChecker = (str: string) => {
     ) {
       setPasswordStrength("strong");
     }
+
+    if(oneLowerCaseLetter.test(password) &&
+    oneUpperCaseLetter.test(password) &&
+    oneDigit.test(password) &&
+    oneSpecialCharacter.test(password) &&
+    minimumCharacters.test(password))
   }, [str, passwordStrength]);
   return { passwordStrength };
 };

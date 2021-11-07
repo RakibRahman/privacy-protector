@@ -11,10 +11,16 @@ export const Password: React.FC<PasswordProps> = ({
   const { toast } = useToaster("Password copied", "Keep your password safe");
 
   return (
-    <Flex my="5px" align="center" justify="center" flexWrap="wrap" gridGap="1">
+    <Flex
+      my="5px"
+      align="center"
+      justify="center"
+      flexDirection="column"
+      gridGap="2"
+    >
       <Input
         type="text"
-        w="80%"
+        w="100%"
         minH="40px"
         p="2"
         value={generatedPassword}
@@ -26,12 +32,11 @@ export const Password: React.FC<PasswordProps> = ({
       <Button
         cursor="copy"
         borderRadius="xl"
-        onClick={() => {
-          onCopy();
-          toast();
+        onClick={async () => {
+          await onCopy();
+          await toast();
         }}
-        w="150px"
-        minH="40px"
+        w="160px"
         textAlign="center"
         color={hasCopied ? "#fdc51a" : "white"}
         background={hasCopied ? "#c334d9" : "#cb4e00"}
