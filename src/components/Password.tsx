@@ -19,6 +19,7 @@ export const Password: React.FC<PasswordProps> = ({
       gridGap="2"
     >
       <Input
+        focusBorderColor="#1BAF72"
         type="text"
         w="100%"
         minH="40px"

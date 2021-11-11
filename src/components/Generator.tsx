@@ -6,8 +6,9 @@ export const Generator: React.FC = () => {
   React.useEffect(() => {
     document.title = "Privacy Protector";
   }, []);
+  // bgGradient = "linear(#FFCC2F,#EF5734)";
   return (
-    <Box bgGradient="linear(#FFCC2F,#EF5734)" p="10">
+    <Box bg="#DB7D3A" p="10">
       <WelcomeComponent />
       <Box borderBottom="1px solid #fff"></Box>
 

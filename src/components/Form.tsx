@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Indicator } from "./Indicator";
+import { Indicator } from "./indicator/Indicator";
 import { Password } from "./Password";
 import { SliderComponent } from "./formElements/Slider";
 import { Letters } from "./formElements/Letters";
