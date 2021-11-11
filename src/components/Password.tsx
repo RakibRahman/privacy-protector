@@ -31,6 +31,10 @@ export const Password: React.FC<PasswordProps> = ({
 
       <Spacer />
       <Button
+        _hover={{
+          background: "white",
+          color: "teal.500",
+        }}
         cursor="copy"
         borderRadius="xl"
         onClick={async () => {

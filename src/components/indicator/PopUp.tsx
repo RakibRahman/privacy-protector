@@ -19,7 +19,7 @@ export const PopUp = () => {
     <Box ml="auto" fontSize="1.8rem">
       <Popover placement="right">
         <PopoverTrigger>
-          <Button>
+          <Button bg="transparent" fontSize="26">
             <MdInfo color="#2196F3" />
           </Button>
         </PopoverTrigger>

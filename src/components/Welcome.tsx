@@ -33,14 +33,20 @@ export const WelcomeComponent = () => {
         />
       </Box>
       <VStack px="2" spacing="10px">
-        <Text fontSize="xl">
-          The Privacy Protector will help you to create a{" "}
-          <strong>secure </strong>
+        <Text fontSize="2rem" color="#ffffff">
+          The Privacy Protector will help you to create a
+          <Text as="strong" color="#f14e0d">
+            {" "}
+            secure{" "}
+          </Text>
           password
         </Text>
-        <Text color="#fff">
-          Notice: Please keep your password <strong>safe</strong> in case you
-          forget it.
+        <Text color="#fff" fontSize="xl">
+          Notice: Please keep your password{" "}
+          <Text as="strong" color="#f14e0d">
+            safe{" "}
+          </Text>
+          in case you forget it.
         </Text>
       </VStack>
     </Flex>

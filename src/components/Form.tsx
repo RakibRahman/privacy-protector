@@ -73,6 +73,10 @@ export const Form: React.FC = () => {
         </Box>
 
         <Button
+          _hover={{
+            background: "white",
+            color: "teal.500",
+          }}
           type="submit"
           bg="#1BAF72"
           color="#ffffff"

@@ -8,7 +8,7 @@ export const Generator: React.FC = () => {
   }, []);
   // bgGradient = "linear(#FFCC2F,#EF5734)";
   return (
-    <Box bg="#DB7D3A" p="10">
+    <Box p="10" className="generator__wrapper">
       <WelcomeComponent />
       <Box borderBottom="1px solid #fff"></Box>
 
