@@ -44,7 +44,7 @@ export const Password: React.FC<PasswordProps> = ({
         w="160px"
         textAlign="center"
         color={hasCopied ? "#fdc51a" : "white"}
-        background={hasCopied ? "#c334d9" : "#cb4e00"}
+        background={hasCopied ? "#008050" : "#cb4e00"}
       >
         {hasCopied ? "Copied" : "Copy to Clipboard"}
       </Button>
