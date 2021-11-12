@@ -34,7 +34,7 @@ const usePasswordChecker = (str: string) => {
     }
 
     if (
-      size > 16 &&
+      size >= 16 &&
       oneLowerCaseLetter.test(str) &&
       oneUpperCaseLetter.test(str) &&
       oneDigit.test(str) &&
