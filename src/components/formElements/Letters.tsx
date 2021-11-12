@@ -20,7 +20,10 @@ export const Letters: React.FC<FormElementProps> = ({
           </Switch>
         </FormLabel>
 
-        <Text color={formState.uppercase ? "green" : "red"} fontWeight="bold">
+        <Text
+          color={formState.uppercase ? "#408b16" : "#c52121"}
+          fontWeight="bold"
+        >
           (A..Z)
         </Text>
       </Flex>
@@ -36,7 +39,10 @@ export const Letters: React.FC<FormElementProps> = ({
           </Switch>
         </FormLabel>
 
-        <Text color={formState.lowercase ? "green" : "red"} fontWeight="bold">
+        <Text
+          color={formState.lowercase ? "#408b16" : "#c52121"}
+          fontWeight="bold"
+        >
           (a..z)
         </Text>
       </Flex>

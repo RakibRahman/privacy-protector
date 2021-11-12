@@ -15,14 +15,14 @@ export const Indicator: React.FC<propTypes> = ({ password }) => {
         w="62px"
         background={
           passwordStrength === "weak"
-            ? "red"
+            ? "#c52121"
             : passwordStrength === "medium"
-            ? "orange"
+            ? "#ffd850"
             : passwordStrength === "strong"
-            ? "green"
+            ? "#44b200"
             : passwordStrength === "best"
-            ? "green"
-            : "gray"
+            ? "#44b200"
+            : "#b0a8b9"
         }
         h="7"
       ></Box>
@@ -30,12 +30,12 @@ export const Indicator: React.FC<propTypes> = ({ password }) => {
         w="62px"
         background={
           passwordStrength === "medium"
-            ? "orange"
+            ? "#ffd850"
             : passwordStrength === "strong"
-            ? "green"
+            ? "#44b200"
             : passwordStrength === "best"
-            ? "green"
-            : "gray"
+            ? "#44b200"
+            : "#b0a8b9"
         }
         h="7"
       ></Box>
@@ -43,16 +43,16 @@ export const Indicator: React.FC<propTypes> = ({ password }) => {
         w="62px"
         background={
           passwordStrength === "strong"
-            ? "green"
+            ? "#44b200"
             : passwordStrength === "best"
-            ? "green"
-            : "gray"
+            ? "#44b200"
+            : "#b0a8b9"
         }
         h="7"
       ></Box>
       <Box
         w="62px"
-        background={passwordStrength === "best" ? "green" : "gray"}
+        background={passwordStrength === "best" ? "#44b200" : "#b0a8b9"}
         h="7"
       ></Box>
 

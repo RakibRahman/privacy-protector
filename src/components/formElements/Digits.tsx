@@ -18,7 +18,10 @@ export const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
           </Switch>
         </FormLabel>
 
-        <Text color={formState.digits ? "green" : "red"} fontWeight="bold">
+        <Text
+          color={formState.digits ? "#408b16" : "#c52121"}
+          fontWeight="bold"
+        >
           (0..9)
         </Text>
       </Flex>

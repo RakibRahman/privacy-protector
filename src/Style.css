@@ -5,6 +5,9 @@
   box-sizing: border-box;
   font-family: "Playfair Display", serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 .generator__wrapper {
   background: linear-gradient(-45deg, #667eea, #000000, #2575fc, #000000);
   background-size: 400% 400%;

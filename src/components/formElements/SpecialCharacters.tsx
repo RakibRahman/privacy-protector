@@ -22,7 +22,7 @@ export const SpecialCharacters: React.FC<FormElementProps> = ({
         </FormLabel>
 
         <Text
-          color={formState.specialCharacters ? "green" : "red"}
+          color={formState.specialCharacters ? "#408b16" : "#c52121"}
           fontWeight="bold"
         >
           (~`@#$*...)

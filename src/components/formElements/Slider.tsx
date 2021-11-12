@@ -43,10 +43,10 @@ export const SliderComponent: React.FC<SliderProps> = ({
             <SliderFilledTrack
               bg={
                 formState.passLength < 20
-                  ? "red"
+                  ? "#c52121"
                   : formState.passLength > 45
-                  ? "orange"
-                  : "green"
+                  ? "#ffd850"
+                  : "#408b16"
               }
             />
           </SliderTrack>
@@ -59,10 +59,10 @@ export const SliderComponent: React.FC<SliderProps> = ({
           <Text
             color={
               formState.passLength < 20
-                ? "red"
+                ? "#c52121"
                 : formState.passLength > 45
-                ? "orange"
-                : "green"
+                ? "#ffd850"
+                : "#408b16"
             }
             fontWeight="bold"
           >
