@@ -5,10 +5,10 @@ import { SliderComponent } from "./formElements/Slider";
 import { Letters } from "./formElements/Letters";
 import { Digits } from "./formElements/Digits";
 import { SpecialCharacters } from "./formElements/SpecialCharacters";
-import { handleGeneratePassword } from "../helpers/handleGeneratePassword";
-import { InitialFormState } from "../interfaces/types";
+import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
+import { InitialFormState } from "../../interfaces/types";
 import { Box, Button } from "@chakra-ui/react";
-import useToaster from "../helpers/useToaster";
+import useToaster from "../../helpers/useToaster";
 
 export const Form: React.FC = () => {
   const initialFormState = {

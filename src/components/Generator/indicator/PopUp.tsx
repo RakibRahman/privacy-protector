@@ -11,7 +11,7 @@ import {
   Box,
   Image,
 } from "@chakra-ui/react";
-import Info from "../../assets/pass-info.png";
+import Info from "../../../assets/pass-info.png";
 import { MdInfo } from "react-icons/md";
 
 export const PopUp = () => {

@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Box, Text, Flex, Image, VStack } from "@chakra-ui/react";
 
-import BG from "../assets/bg.svg";
-import Emergency from "../assets/emergency.png";
+import BG from "../../assets/bg.svg";
+import Emergency from "../../assets/emergency.png";
 
 export const WelcomeComponent = () => {
   return (
