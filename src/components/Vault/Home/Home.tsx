@@ -9,20 +9,35 @@ import {
   Box,
   Center,
 } from "@chakra-ui/react";
+import { LogIn } from "./LogIn";
+import { SignUp } from "./SignUp";
+
 export const Home = () => {
   return (
-    <Center bg="lightblue" minH="80vh">
-      <Tabs isFitted variant="enclosed" align="center" w="600px" border="1px">
+    <Center bg="#C1BDBA" minH="80vh" className="vault__home">
+      <Tabs
+        isFitted
+        variant="enclosed-colored"
+        align="center"
+        w="600px"
+        border="1px"
+        bg="#24313C"
+        color="#FFFFFF"
+      >
         <TabList mb="1em">
-          <Tab>Log In</Tab>
-          <Tab>Sign Up</Tab>
+          <Tab bg="#435259" _selected={{ color: "white", bg: "#1AB188" }}>
+            Log In
+          </Tab>
+          <Tab bg="#435259" _selected={{ color: "white", bg: "#1AB188" }}>
+            Sign Up
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
-            <p>one!</p>
+            <LogIn />
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            <SignUp />
           </TabPanel>
         </TabPanels>
       </Tabs>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import { Home } from "./Home/Home";
+import { DashBoard } from "./DashBoard/DashBoard";
 export const Vault = () => {
   React.useEffect(() => {
     document.title = "Vault || Privacy Protector";
@@ -8,6 +9,7 @@ export const Vault = () => {
   return (
     <Box>
       <Home />
+      <DashBoard />
     </Box>
   );
 };
