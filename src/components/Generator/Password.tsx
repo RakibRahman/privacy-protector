@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Flex, Button, Spacer, useClipboard, Input } from "@chakra-ui/react";
 
-import { PasswordProps } from "../../interfaces/types";
+import { PasswordProps } from "../../interfaces/generatorTypes";
 import useToaster from "../../helpers/useToaster";
 export const Password: React.FC<PasswordProps> = ({
   generatedPassword,

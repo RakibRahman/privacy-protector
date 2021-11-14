@@ -5,8 +5,6 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  Flex,
-  Box,
   Center,
 } from "@chakra-ui/react";
 import { LogIn } from "./LogIn";

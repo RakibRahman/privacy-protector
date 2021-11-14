@@ -6,7 +6,7 @@ import { Letters } from "./formElements/Letters";
 import { Digits } from "./formElements/Digits";
 import { SpecialCharacters } from "./formElements/SpecialCharacters";
 import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
-import { InitialFormState } from "../../interfaces/types";
+import { InitialFormState } from "../../interfaces/generatorTypes";
 import { Box, Button } from "@chakra-ui/react";
 import useToaster from "../../helpers/useToaster";
 

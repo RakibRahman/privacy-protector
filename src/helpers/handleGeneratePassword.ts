@@ -1,4 +1,4 @@
-import { HandleGeneratePasswordProps } from "../interfaces/types";
+import { HandleGeneratePasswordProps } from "../interfaces/generatorTypes";
 import { handleCreatePassword } from "./handleCreatePassword";
 
 import {
