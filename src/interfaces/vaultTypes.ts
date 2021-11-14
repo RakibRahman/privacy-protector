@@ -14,3 +14,9 @@ export interface AppContextInterface {
   signUp: (user: UserCredentialProps) => void;
   signOut: () => any;
 }
+
+export interface AddDataProps {
+  site: string;
+  username: string;
+  password: string;
+}
