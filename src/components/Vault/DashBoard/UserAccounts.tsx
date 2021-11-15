@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Box, Flex, Text, Image, Button, Spacer } from "@chakra-ui/react";
-import { fbStore } from "./../../../firebase";
-import { deleteDoc, doc } from "firebase/firestore";
+import { useFireStore } from "./hooks/useFireStore";
 
 interface UserProps {
   site: string;
@@ -16,13 +15,10 @@ interface IProps {
   userData: UserData;
 }
 export const UserAccounts: React.FC<IProps> = ({ userData }) => {
+  const { deleteUserLogin } = useFireStore();
   const [active, setActive] = useState<boolean>(false);
   const activeHandler = () => setActive(!active);
 
-  const deleteLogin = async (id: string) => {
-    let loginDoc = doc(fbStore, "users", id);
-    await deleteDoc(loginDoc);
-  };
   return (
     <Box overflowY="scroll" cursor="pointer">
       <Text>Log In List</Text>
@@ -36,16 +32,15 @@ export const UserAccounts: React.FC<IProps> = ({ userData }) => {
       >
         {userData.map((login) => (
           <Flex
-            onClick={activeHandler}
+            onClick={() => console.log("click")}
             key={login.id}
             gridGap="2"
             align="center"
             justify="center"
             pl="1"
             w="100%"
-            borderLeft={`2px solid ${active ? "green" : "red"}`}
           >
-            <Image src={login.favicon} alt={"💂‍♂️"} />
+            <Image w="1.2rem" src={login.favicon} alt={"💂‍♂️"} />
 
             <Box>
               <Text>{login.site}</Text>
@@ -56,7 +51,7 @@ export const UserAccounts: React.FC<IProps> = ({ userData }) => {
               bg="red"
               color="white"
               mx="1"
-              onClick={() => deleteLogin(login.id)}
+              onClick={() => deleteUserLogin(login.id)}
             >
               Delete
             </Button>
