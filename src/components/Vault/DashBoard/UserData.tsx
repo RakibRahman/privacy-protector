@@ -1,7 +1,11 @@
 import React from "react";
-import { FormLabel, Input, Box, Flex, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+// import { useAuth } from "./../context/context";
+
 import { AddData } from "./AddData";
+
 export const UserData = () => {
+  // const { currentUser } = useAuth()!;
   return (
     <Box>
       <AddData />

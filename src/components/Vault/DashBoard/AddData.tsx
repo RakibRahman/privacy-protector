@@ -15,6 +15,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { AddDataProps } from "../../../interfaces/vaultTypes";
+import { useFireStore } from "./hooks/useFireStore";
 
 export const AddData = () => {
   const initFormValues = {
@@ -24,7 +25,7 @@ export const AddData = () => {
   };
 
   //   const { error, signUp } = useAuth()!;
-
+  const { addUserData } = useFireStore();
   const [formState, setFormState] = useState<AddDataProps>(initFormValues);
   const [isOpen, setIsOpen] = React.useState(false);
   const open = () => setIsOpen(!isOpen);
@@ -38,6 +39,7 @@ export const AddData = () => {
     e.preventDefault();
     console.log(JSON.stringify(formState));
     open();
+    await addUserData(formState.site, formState.username, formState.password);
     setFormState(initFormValues);
   };
   return (
