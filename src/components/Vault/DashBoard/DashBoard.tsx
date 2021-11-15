@@ -8,17 +8,11 @@ import { useCollection } from "./hooks/useCollection";
 
 export const DashBoard = () => {
   const { currentUser } = useAuth()!;
-  const { userData, error } = useCollection();
+  const { userData, error } = useCollection(["", "==", currentUser.uid]);
   // ["", "==", currentUser.uid]
   return (
     <Flex justify="center" align="center" w="100%" minH="80vh">
-      <Flex
-        className="leftSideBox"
-        w="500px"
-        border="5px solid black"
-        minH="50vh"
-        flexDirection="column"
-      >
+      <Flex w="60%" minH="80vh" className="leftSideBox" flexDirection="column">
         <UserInfo />
         <Spacer />
         <Text>{error}</Text>
@@ -26,8 +20,9 @@ export const DashBoard = () => {
         <Spacer />
         <UserData />
       </Flex>
+      <Spacer />
 
-      <Box className="rightSideBox" border="5px solid black" minH="50vh">
+      <Box className="rightSideBox" w="40%" minH="80vh">
         <Box>
           <Heading>Account List</Heading>
           <Box>
