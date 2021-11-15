@@ -13,6 +13,7 @@ interface CollectionProps {
   userData: UserProps[];
   setUserData: React.Dispatch<React.SetStateAction<any>>;
 }
+//query: string[]
 export const useCollection = (query: string[]) => {
   //   const ref = collection(fbStore, "users");
   let ref = fbStore.collection("users");
@@ -38,9 +39,13 @@ export const useCollection = (query: string[]) => {
     let isMounted = true;
     const ref = collection(fbStore, "users");
     const getUserData = async () => {
-      if (isMounted) {
-        const data = await getDocs(ref);
-        setUserData(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      try {
+        if (isMounted) {
+          const data = await getDocs(ref);
+          setUserData(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        }
+      } catch {
+        setError("something went wrong");
       }
     };
     getUserData();

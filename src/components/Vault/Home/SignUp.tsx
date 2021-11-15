@@ -9,7 +9,6 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { useAuth } from "./../context/context";
-import { Link as RouterLink } from "react-router-dom";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 
 export const SignUp = () => {
@@ -52,7 +51,9 @@ export const SignUp = () => {
       <Heading>Sign Up for Free</Heading>
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
-          <Text>{error}</Text>
+          <Text color="hotpink">{error}</Text>
+          {loading && <Text color="#1AB188">Signing Up..</Text>}
+
           <FormLabel>
             <Text my="1"> Email:</Text>
             <Input

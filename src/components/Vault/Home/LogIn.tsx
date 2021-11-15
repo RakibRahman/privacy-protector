@@ -52,6 +52,7 @@ export const LogIn = () => {
     <Box>
       <Heading>Welcome Back</Heading>
       <Text color="#f14"> {error}</Text>
+      {loading && <Text color="#1AB188">Logging..</Text>}
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
           <FormLabel>

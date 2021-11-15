@@ -8,7 +8,6 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   Button,
-  Box,
   Input,
   FormLabel,
   Flex,
@@ -39,19 +38,25 @@ export const AddData = () => {
     e.preventDefault();
     console.log(JSON.stringify(formState));
     open();
-    await addUserData(formState.site, formState.username, formState.password);
+    await addUserData(formState);
     setFormState(initFormValues);
   };
   return (
-    <Box fontSize="1.8rem">
+    <Flex fontSize="1.8rem" mx="auto" align="center" justify="center">
       <Popover
-        placement="top-start"
+        placement="right-end"
         isOpen={isOpen}
         returnFocusOnClose={false}
         onClose={close}
       >
         <PopoverTrigger>
-          <Button bg="transparent" fontSize="16" onClick={open}>
+          <Button
+            bg="hotpink"
+            color="#fff"
+            fontSize="16"
+            onClick={open}
+            w="8rem"
+          >
             <Text>Add New Login</Text>
           </Button>
         </PopoverTrigger>
@@ -105,6 +110,6 @@ export const AddData = () => {
           </PopoverBody>
         </PopoverContent>
       </Popover>
-    </Box>
+    </Flex>
   );
 };

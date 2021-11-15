@@ -3,12 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { Home } from "./Home/Home";
 import { DashBoard } from "./DashBoard/DashBoard";
 import { AuthProvider } from "./context/context";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useRouteMatch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export const Vault = () => {
   React.useEffect(() => {

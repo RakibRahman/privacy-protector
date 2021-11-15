@@ -18,6 +18,7 @@ export const AuthProvider: FC = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<CurrentUser>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [refresh, setRefresh] = useState<{} | null>(null);
   const history = useHistory();
 
