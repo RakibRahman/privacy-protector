@@ -20,3 +20,12 @@ export interface AddDataProps {
   username: string;
   password: string;
 }
+export interface CollectionProps {
+  id: string;
+  site: string;
+  password: string;
+  uid: string;
+  username: string;
+  favicon: string;
+}
+export type UserData = CollectionProps[];

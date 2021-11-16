@@ -8,8 +8,8 @@ import { useCollection } from "./hooks/useCollection";
 
 export const DashBoard = () => {
   const { currentUser } = useAuth()!;
-  const { userData, error } = useCollection(["", "==", currentUser.uid]);
-  // ["", "==", currentUser.uid]
+  const { userData, error } = useCollection(["uid", "==", currentUser?.uid]);
+
   return (
     <Flex justify="center" align="center" w="100%" minH="80vh">
       <Flex w="60%" minH="80vh" className="leftSideBox" flexDirection="column">

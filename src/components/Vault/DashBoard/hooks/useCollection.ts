@@ -1,43 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 import { fbStore } from "../../../../firebase";
-import { getDocs, collection } from "firebase/firestore";
-interface UserProps {
-  id: string;
-  site: string;
-  password: string;
-  uid: string;
-  username: string;
-  favicon: string;
-}
-interface CollectionProps {
-  userData: UserProps[];
-  setUserData: React.Dispatch<React.SetStateAction<any>>;
-}
-//query: string[]
-export const useCollection = (query: string[]) => {
-  //   const ref = collection(fbStore, "users");
-  let ref = fbStore.collection("users");
+import { getDocs, query, where, collection } from "firebase/firestore";
+import { CollectionReference } from "@firebase/firestore-types";
+import { CollectionProps } from "../../../../interfaces/vaultTypes";
 
-  const [userData, setUserData] = useState(null);
+export const useCollection = (_query: [string, any, string]) => {
+  const [userData, setUserData] = useState<CollectionProps[] | null>(null);
   const [error, setError] = useState<string>("");
+  const queryRef = useRef(_query).current;
 
-  const _query = useRef(query);
+  let ref = fbStore.collection("users");
   useEffect(() => {
-    // const unsubscribe = ref.onSnapshot(
-    //   (snapshot) => {
-    //     let results = [] as any;
-    //     snapshot.forEach((doc) => {
-    //       results.push({ ...doc.data(), id: doc.id });
-    //     });
-    //     setUserData(results);
-    //   },
-    //   (error) => {
-    //     setError(error.message);
-    //   }
-    // );
-    // return () => unsubscribe();
     let isMounted = true;
-    const ref = collection(fbStore, "users");
+    let ref = collection(
+      fbStore,
+      "users"
+    ) as unknown as CollectionReference<CollectionProps>;
+    if (query) {
+      ref = query(
+        ref,
+        where(...queryRef)
+      ) as unknown as CollectionReference<CollectionProps>;
+    }
     const getUserData = async () => {
       try {
         if (isMounted) {
@@ -53,6 +37,6 @@ export const useCollection = (query: string[]) => {
       isMounted = false;
       getUserData();
     };
-  }, [ref]);
+  }, [ref, queryRef]);
   return { userData, error };
 };

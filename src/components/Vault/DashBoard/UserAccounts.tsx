@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import { Box, Flex, Text, Image, Button, Spacer } from "@chakra-ui/react";
 import { useFireStore } from "./hooks/useFireStore";
+import { UserData } from "../../../interfaces/vaultTypes";
 
-interface UserProps {
-  site: string;
-  password?: string;
-  uid?: string;
-  id?: string;
-  username: string;
-  favicon: string;
-}
-type UserData = UserProps[];
 interface IProps {
   userData: UserData;
 }
