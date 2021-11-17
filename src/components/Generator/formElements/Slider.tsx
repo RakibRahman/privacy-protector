@@ -14,7 +14,7 @@ import {
 
 import { MdSettingsEthernet } from "react-icons/md";
 
-export const SliderComponent: React.FC<SliderProps> = ({
+const SliderComponent: React.FC<SliderProps> = ({
   formState,
   setFormState,
 }) => {
@@ -74,3 +74,4 @@ export const SliderComponent: React.FC<SliderProps> = ({
     </Flex>
   );
 };
+export default React.memo(SliderComponent);

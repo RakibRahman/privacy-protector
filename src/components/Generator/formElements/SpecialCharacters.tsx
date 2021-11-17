@@ -3,7 +3,7 @@ import { FormElementProps } from "../../../interfaces/generatorTypes";
 
 import { Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 
-export const SpecialCharacters: React.FC<FormElementProps> = ({
+const SpecialCharacters: React.FC<FormElementProps> = ({
   formState,
   onChange,
 }) => {
@@ -29,3 +29,4 @@ export const SpecialCharacters: React.FC<FormElementProps> = ({
     </Flex>
   );
 };
+export default React.memo(SpecialCharacters);

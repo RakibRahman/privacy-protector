@@ -14,7 +14,7 @@ import {
 import Info from "../../../assets/pass-info.png";
 import { MdInfo } from "react-icons/md";
 
-export const PopUp = () => {
+const PopUp = () => {
   return (
     <Box ml="auto" fontSize="1.8rem">
       <Popover placement="right">
@@ -39,3 +39,4 @@ export const PopUp = () => {
     </Box>
   );
 };
+export default React.memo(PopUp);

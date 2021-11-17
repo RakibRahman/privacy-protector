@@ -3,10 +3,7 @@ import { Flex, Button, Spacer, useClipboard, Input } from "@chakra-ui/react";
 
 import { PasswordProps } from "../../interfaces/generatorTypes";
 import useToaster from "../../helpers/useToaster";
-export const Password: React.FC<PasswordProps> = ({
-  generatedPassword,
-  onChange,
-}) => {
+const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
   const { hasCopied, onCopy } = useClipboard(generatedPassword);
   const { toast } = useToaster("Password copied", "Keep your password safe");
 
@@ -51,3 +48,4 @@ export const Password: React.FC<PasswordProps> = ({
     </Flex>
   );
 };
+export default React.memo(Password);

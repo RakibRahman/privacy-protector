@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import usePasswordChecker from "../../../helpers/usePasswordChecker";
-import { PopUp } from "./PopUp";
+import PopUp from "./PopUp";
 
 interface propTypes {
   password: string;

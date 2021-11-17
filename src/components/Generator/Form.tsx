@@ -1,10 +1,10 @@
 import React from "react";
 import { Indicator } from "./indicator/Indicator";
-import { Password } from "./Password";
-import { SliderComponent } from "./formElements/Slider";
+import Password from "./Password";
+import SliderComponent from "./formElements/Slider";
 import { Letters } from "./formElements/Letters";
-import { Digits } from "./formElements/Digits";
-import { SpecialCharacters } from "./formElements/SpecialCharacters";
+import Digits from "./formElements/Digits";
+import SpecialCharacters from "./formElements/SpecialCharacters";
 import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
 import { InitialFormState } from "../../interfaces/generatorTypes";
 import { Box, Button } from "@chakra-ui/react";

@@ -3,7 +3,7 @@ import { FormElementProps } from "../../../interfaces/generatorTypes";
 
 import { Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 
-export const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
+const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
   return (
     <Flex align="center" justify="space-between" w="50%">
       <FormLabel htmlFor="digits">
@@ -23,3 +23,4 @@ export const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
     </Flex>
   );
 };
+export default React.memo(Digits);
