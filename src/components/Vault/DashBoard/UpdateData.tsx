@@ -15,19 +15,22 @@ import {
 } from "@chakra-ui/react";
 import { AddDataProps } from "../../../interfaces/vaultTypes";
 import { useFireStore } from "./hooks/useFireStore";
+import { CollectionProps } from "../../../interfaces/vaultTypes";
 
-export const AddData = () => {
+const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
   const initFormValues = {
-    site: "",
-    username: "",
-    password: "",
+    site: login.site,
+    username: login.username,
+    password: login.password,
   };
 
-  const { addUserData } = useFireStore();
+  const { updateUserLogin } = useFireStore();
   const [formState, setFormState] = useState<AddDataProps>(initFormValues);
   const [isOpen, setIsOpen] = React.useState(false);
+
   const open = () => setIsOpen(!isOpen);
   const close = () => setIsOpen(false);
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
@@ -35,10 +38,8 @@ export const AddData = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(JSON.stringify(formState));
     open();
-
-    await addUserData(formState);
+    await updateUserLogin(login.id, formState);
     setFormState(initFormValues);
   };
   return (
@@ -57,7 +58,7 @@ export const AddData = () => {
             onClick={open}
             w="8rem"
           >
-            <Text>Add New Login</Text>
+            <Text>Update</Text>
           </Button>
         </PopoverTrigger>
         <PopoverContent
@@ -113,3 +114,4 @@ export const AddData = () => {
     </Flex>
   );
 };
+export default React.memo(UpdateData);

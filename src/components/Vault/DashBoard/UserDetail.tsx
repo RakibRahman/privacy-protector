@@ -16,8 +16,10 @@ import {
 import { CollectionProps } from "../../../interfaces/vaultTypes";
 import { Link } from "react-router-dom";
 import { useFireStore } from "./hooks/useFireStore";
-export const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
+import UpdateData from "./UpdateData";
+const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
   const { deleteUserLogin } = useFireStore();
+
   return (
     <Accordion allowToggle w="100%">
       <AccordionItem>
@@ -80,15 +82,16 @@ export const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                 >
                   Delete
                 </Button>
-                <Button
+                {/* <Button
                   mt="3"
-                  bg="red"
+                  bg="skyblue"
                   color="white"
                   mx="1"
-                  onClick={() => deleteUserLogin(login.id)}
+                  onClick={() => updateUserLogin(login.id)}
                 >
                   Edit
-                </Button>
+                </Button> */}
+                <UpdateData login={login} />
               </Flex>
             </Flex>
           </Center>
@@ -97,3 +100,4 @@ export const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
     </Accordion>
   );
 };
+export default React.memo(UserDetail);

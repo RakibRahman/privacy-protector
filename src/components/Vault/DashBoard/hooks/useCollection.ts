@@ -29,7 +29,7 @@ export const useCollection = (_query: [string, any, string]) => {
           setUserData(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
         }
       } catch {
-        setError("something went wrong");
+        setError("something went wrong / connection failed with firebase");
       }
     };
     getUserData();

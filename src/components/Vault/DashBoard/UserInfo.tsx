@@ -5,7 +5,7 @@ import { ImUser } from "react-icons/im";
 
 import { useAuth } from "./../context/context";
 
-export const UserInfo: React.FC = () => {
+const UserInfo: React.FC = () => {
   const { currentUser, signOut } = useAuth()!;
   return (
     <Flex
@@ -22,3 +22,4 @@ export const UserInfo: React.FC = () => {
     </Flex>
   );
 };
+export default React.memo(UserInfo);

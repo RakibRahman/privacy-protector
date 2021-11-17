@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, Flex, Spacer } from "@chakra-ui/react";
 import { useAuth } from "./../context/context";
-import { UserInfo } from "./UserInfo";
-import { UserData } from "./UserData";
-import { UserAccounts } from "./UserAccounts";
+import UserInfo from "./UserInfo";
+import { AddData } from "./AddData";
+import UserAccounts from "./UserAccounts";
 import { useCollection } from "./hooks/useCollection";
 
 export const DashBoard = () => {
@@ -22,7 +22,7 @@ export const DashBoard = () => {
       <Text>{error}</Text>
       {userData && <UserAccounts userData={userData} />}
       <Spacer />
-      <UserData />
+      <AddData />
     </Flex>
   );
 };
