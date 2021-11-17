@@ -17,7 +17,7 @@ export const useFireStore = () => {
         site: value.site,
         username: value.username,
         password: value.password,
-        createdAt,
+        createdAt: createdAt,
         favicon: `http://www.google.com/s2/favicons?domain=${value.site}`,
       });
     } catch (e) {

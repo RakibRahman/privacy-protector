@@ -18,8 +18,8 @@ export const AuthProvider: FC = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<CurrentUser>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [refresh, setRefresh] = useState<{} | null>(null);
+  const [netStatus, setNetStatus] = useState<string>("");
+
   const history = useHistory();
 
   //user sign up
@@ -31,8 +31,9 @@ export const AuthProvider: FC = ({ children }) => {
         const user = userCredential.user;
         console.log(user);
         alert("sign up successful");
-        setRefresh({});
-        window.location.reload();
+        history.push("/vault/dashboard");
+
+        // window.location.reload();
       })
       .catch((error) => {
         setError(error.message);
@@ -63,20 +64,22 @@ export const AuthProvider: FC = ({ children }) => {
   }
 
   useEffect(() => {
-    let isMounted = true;
     const unsubscribe = fbAuth.onAuthStateChanged((user) => {
-      if (isMounted) setCurrentUser(user);
+      setCurrentUser(user);
 
       //stores information about current logged userPass
       setLoading(false);
     });
-    return () => {
-      isMounted = false;
-      unsubscribe();
-    };
+    window.addEventListener("offline", (event) => {
+      setNetStatus("Check your net connection!!!");
+    });
+    window.addEventListener("ononline", (event) => {
+      setNetStatus("");
+    });
+    return () => unsubscribe();
   }, []);
 
-  const value = { currentUser, signIn, error, signUp, signOut };
+  const value = { currentUser, signIn, error, signUp, signOut, netStatus };
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

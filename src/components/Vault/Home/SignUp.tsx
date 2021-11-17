@@ -17,7 +17,7 @@ export const SignUp = () => {
     password: "",
     repeatPassword: "",
   };
-  const { error, signUp } = useAuth()!;
+  const { error, signUp, netStatus } = useAuth()!;
 
   const [formState, setFormState] =
     useState<UserCredentialProps>(initFormValues);
@@ -52,6 +52,8 @@ export const SignUp = () => {
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
           <Text color="hotpink">{error}</Text>
+          <Text color="#f14"> {netStatus}</Text>
+
           {loading && <Text color="#1AB188">Signing Up..</Text>}
 
           <FormLabel>

@@ -10,6 +10,7 @@ export interface UserCredentialProps {
 export interface AppContextInterface {
   currentUser: CurrentUser;
   error: string;
+  netStatus: string;
   signIn: (user: UserCredentialProps) => any;
   signUp: (user: UserCredentialProps) => void;
   signOut: () => any;
@@ -20,6 +21,10 @@ export interface AddDataProps {
   username: string;
   password: string;
 }
+export interface AddProps {
+  formState: AddDataProps;
+  setFormState: React.Dispatch<React.SetStateAction<any>>;
+}
 export interface CollectionProps {
   id: string;
   site: string;
@@ -27,5 +32,6 @@ export interface CollectionProps {
   uid: string;
   username: string;
   favicon: string;
+  createdAt?: any;
 }
 export type UserData = CollectionProps[];

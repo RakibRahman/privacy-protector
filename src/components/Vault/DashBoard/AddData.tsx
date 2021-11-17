@@ -38,6 +38,7 @@ export const AddData = () => {
     e.preventDefault();
     console.log(JSON.stringify(formState));
     open();
+
     await addUserData(formState);
     setFormState(initFormValues);
   };

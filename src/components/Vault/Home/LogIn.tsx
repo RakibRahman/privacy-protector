@@ -22,7 +22,7 @@ export const LogIn = () => {
     email: "",
     password: "",
   };
-  const { signIn, error } = useAuth()!;
+  const { signIn, error, netStatus } = useAuth()!;
 
   // exclamation mark (!) after the call to the useAuth hook to tell the TypeScript compiler that its return value won’t be undefined.
 
@@ -52,6 +52,7 @@ export const LogIn = () => {
     <Box>
       <Heading>Welcome Back</Heading>
       <Text color="#f14"> {error}</Text>
+      <Text color="#f14"> {netStatus}</Text>
       {loading && <Text color="#1AB188">Logging..</Text>}
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
