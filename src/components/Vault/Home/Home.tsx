@@ -10,7 +10,7 @@ import {
 import { LogIn } from "./LogIn";
 import { SignUp } from "./SignUp";
 
-export const Home = () => {
+const Home = () => {
   return (
     <Center bg="#C1BDBA" minH="80vh" className="vault__home">
       <Tabs
@@ -42,3 +42,4 @@ export const Home = () => {
     </Center>
   );
 };
+export default React.memo(Home);

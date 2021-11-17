@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Box, Text, Flex, Image, VStack } from "@chakra-ui/react";
 
 import BG from "../../assets/bg.svg";
@@ -33,7 +33,7 @@ export const WelcomeComponent = () => {
         />
       </Box>
       <VStack px="2" spacing="10px">
-        <Text fontSize="2rem" color="#ffffff">
+        <Text textAlign="center" fontSize="2rem" color="#ffffff">
           The Privacy Protector will help you to create a
           <Text as="strong" color="#f14e0d">
             {" "}

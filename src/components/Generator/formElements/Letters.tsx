@@ -1,13 +1,13 @@
-import * as React from "react";
-import { FormElementProps } from "../../interfaces/types";
+import React from "react";
+import { FormElementProps } from "../../../interfaces/generatorTypes";
 
-import { Box, Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
+import { Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 export const Letters: React.FC<FormElementProps> = ({
   formState,
   onChange,
 }) => {
   return (
-    <Box>
+    <>
       <Flex align="center" justify="space-between" w="50%">
         <FormLabel htmlFor="uppercase">
           <Switch
@@ -15,9 +15,9 @@ export const Letters: React.FC<FormElementProps> = ({
             name="uppercase"
             defaultChecked={formState.uppercase}
             onChange={onChange}
-          >
-            Upper Case
-          </Switch>
+            mr="2"
+          ></Switch>
+          Upper Case
         </FormLabel>
 
         <Text
@@ -34,9 +34,9 @@ export const Letters: React.FC<FormElementProps> = ({
             name="lowercase"
             defaultChecked={formState.lowercase}
             onChange={onChange}
-          >
-            Lower Case
-          </Switch>
+            mr="2"
+          ></Switch>
+          Lower Case
         </FormLabel>
 
         <Text
@@ -46,6 +46,6 @@ export const Letters: React.FC<FormElementProps> = ({
           (a..z)
         </Text>
       </Flex>
-    </Box>
+    </>
   );
 };

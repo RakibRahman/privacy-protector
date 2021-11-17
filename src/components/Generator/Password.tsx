@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Flex, Button, Spacer, useClipboard, Input } from "@chakra-ui/react";
 
 import { PasswordProps } from "../../interfaces/generatorTypes";
@@ -37,9 +37,9 @@ export const Password: React.FC<PasswordProps> = ({
         }}
         cursor="copy"
         borderRadius="xl"
-        onClick={async () => {
-          await onCopy();
-          await toast();
+        onClick={() => {
+          onCopy();
+          toast();
         }}
         w="160px"
         textAlign="center"

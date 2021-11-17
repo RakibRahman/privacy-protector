@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Indicator } from "./indicator/Indicator";
 import { Password } from "./Password";
 import { SliderComponent } from "./formElements/Slider";
@@ -23,7 +23,7 @@ export const Form: React.FC = () => {
   const { toast } = useToaster("Password created.", "Keep your password safe");
   const { toast: toastError } = useToaster(
     "Password Not Created.",
-    "Must Select Atleast One Option"
+    "Must Select At least One Option"
   );
 
   const [formState, setFormState] =
@@ -58,34 +58,32 @@ export const Form: React.FC = () => {
     }
   };
   return (
-    <Box w="100%">
-      <form onSubmit={submitHandler} className="formGenerator">
-        <Indicator password={formState.generatedPassword} />
-        <Box>
-          <Password
-            generatedPassword={formState.generatedPassword}
-            onChange={onChangeHandler}
-          />
-          <SliderComponent formState={formState} setFormState={setFormState} />
-          <Letters formState={formState} onChange={onChangeHandler} />
-          <Digits formState={formState} onChange={onChangeHandler} />
-          <SpecialCharacters formState={formState} onChange={onChangeHandler} />
-        </Box>
+    <form onSubmit={submitHandler} className="formGenerator">
+      <Indicator password={formState.generatedPassword} />
+      <Box>
+        <Password
+          generatedPassword={formState.generatedPassword}
+          onChange={onChangeHandler}
+        />
+        <SliderComponent formState={formState} setFormState={setFormState} />
+        <Letters formState={formState} onChange={onChangeHandler} />
+        <Digits formState={formState} onChange={onChangeHandler} />
+        <SpecialCharacters formState={formState} onChange={onChangeHandler} />
+      </Box>
 
-        <Button
-          _hover={{
-            background: "white",
-            color: "teal.500",
-          }}
-          type="submit"
-          bg="#1BAF72"
-          color="#ffffff"
-          fontSize="20px"
-          letterSpacing="1px"
-        >
-          Generate Password
-        </Button>
-      </form>
-    </Box>
+      <Button
+        _hover={{
+          background: "white",
+          color: "teal.500",
+        }}
+        type="submit"
+        bg="#1BAF72"
+        color="#ffffff"
+        fontSize="20px"
+        letterSpacing="1px"
+      >
+        Generate Password
+      </Button>
+    </form>
   );
 };

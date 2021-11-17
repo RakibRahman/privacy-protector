@@ -1,23 +1,15 @@
-import * as React from "react";
-import {
-  Box,
-  Link,
-  Text,
-  Heading,
-  VStack,
-  Image,
-  Flex,
-} from "@chakra-ui/react";
+import React from "react";
+import { Box, Text, Heading, VStack, Image, Flex } from "@chakra-ui/react";
 import { MdHome } from "react-icons/md";
-import { Link as ReactLink } from "react-router-dom";
-export const Tips = () => {
+import { Link } from "react-router-dom";
+const Tips = () => {
   React.useEffect(() => {
     document.title = "Tips || Privacy Protector";
   }, []);
   return (
     <Box className="tips__wrapper">
       <Box w="80%" mx="auto" p="4" className="tips">
-        <Flex flexDirection="column" gridGap="2" mb="2" color="white" w>
+        <Flex flexDirection="column" gridGap="2" mb="2" color="white">
           <Heading>
             7 Password Experts on How to Lock Down Your Online Security
           </Heading>
@@ -212,19 +204,20 @@ export const Tips = () => {
             </Text>
           </Flex>
           <Link
-            mt="30"
-            fontSize="xl"
-            fontWeight="bold"
-            href="https://www.wired.com/2016/05/password-tips-experts/"
+            to={{
+              pathname: "https://www.wired.com/2016/05/password-tips-experts/",
+            }}
+            target="_blank"
           >
             Credit
           </Link>
 
-          <ReactLink className="return__home" to="/">
+          <Link className="return__home" to="/">
             <MdHome color="#f9f047" />
-          </ReactLink>
+          </Link>
         </Flex>
       </Box>
     </Box>
   );
 };
+export default React.memo(Tips);

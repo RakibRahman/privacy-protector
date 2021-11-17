@@ -1,5 +1,5 @@
-import * as React from "react";
-import { SliderProps } from "../../interfaces/types";
+import React from "react";
+import { SliderProps } from "../../../interfaces/generatorTypes";
 
 import {
   Flex,
@@ -57,6 +57,7 @@ export const SliderComponent: React.FC<SliderProps> = ({
         <Flex fontSize="lg" align="center" gridGap="2">
           <Text>Password Length:</Text>
           <Text
+            fontSize="xl"
             color={
               formState.passLength < 20
                 ? "#c52121"
