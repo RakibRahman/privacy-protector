@@ -113,3 +113,5 @@ export const AddData = () => {
     </Flex>
   );
 };
+
+export const MemoizedAddData = React.memo(AddData);
