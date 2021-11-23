@@ -24,7 +24,7 @@ export const useFireStore = () => {
         username: value.username,
         password: value.password,
         createdAt: createdAt,
-        favicon: `http://www.google.com/s2/favicons?domain=${value.site}`,
+        favicon: `http://logo.clearbit.com/${value.site}`,
       });
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -47,6 +47,7 @@ export const useFireStore = () => {
         site: value.site,
         username: value.username,
         password: value.password,
+        favicon: `http://logo.clearbit.com/${value.site}`,
       });
       console.log("update successful");
     } catch (e) {

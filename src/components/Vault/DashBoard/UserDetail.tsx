@@ -30,7 +30,13 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
           >
             <Box flex="1" textAlign="left">
               <Flex gridGap="2" align="center" justify="center" pl="1" w="100%">
-                <Image w="1.2rem" src={login.favicon} alt={"💂‍♂️"} />
+                <Image
+                  w="3rem"
+                  h="3rem"
+                  objectFit="cover"
+                  src={login.favicon}
+                  alt={"💂‍♂️"}
+                />
 
                 <Box>
                   <Text>{login.site}</Text>
