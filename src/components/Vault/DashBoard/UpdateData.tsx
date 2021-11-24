@@ -41,7 +41,8 @@ const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
     open();
     await updateUserLogin(login.id, formState);
     setFormState(initFormValues);
-    window.location.reload();
+
+    // window.location.reload();
   };
   return (
     <Flex fontSize="1.8rem" mx="auto" align="center" justify="center">
