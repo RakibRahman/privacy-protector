@@ -45,9 +45,9 @@ const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
     // window.location.reload();
   };
   return (
-    <Flex fontSize="1.8rem" mx="auto" align="center" justify="center">
+    <Flex fontSize="1.8rem">
       <Popover
-        placement="top"
+        placement="start"
         isOpen={isOpen}
         returnFocusOnClose={false}
         onClose={close}

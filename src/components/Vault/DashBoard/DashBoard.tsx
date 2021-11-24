@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Spacer } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import { useAuth } from "./../context/context";
 import UserInfo from "./UserInfo";
 import { MemoizedAddData } from "./AddData";
@@ -17,12 +17,14 @@ export const DashBoard = () => {
       flexDirection="column"
       justify="center"
       align="center"
+      bg="#E9EEF8"
     >
-      <UserInfo />
+      <Flex gridGap="4">
+        <UserInfo />
+        <MemoizedAddData />
+      </Flex>
       <Text>{error}</Text>
       {userData && <UserAccounts userData={userData} />}
-      <Spacer />
-      <MemoizedAddData />
     </Flex>
   );
 };

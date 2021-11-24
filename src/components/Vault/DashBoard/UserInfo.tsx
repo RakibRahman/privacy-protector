@@ -9,16 +9,24 @@ const UserInfo: React.FC = () => {
   const { currentUser, signOut } = useAuth()!;
   return (
     <Flex
+      my="2"
       className="user__info"
       fontSize="2rem"
       align="center"
       justify="center"
       gridGap="4"
-      border="3px dashed#f14"
+      color="black"
     >
-      <ImUser color="green" />
+      <ImUser color="#FF6A66" />
       <Heading>{currentUser?.email}</Heading>
-      <Button onClick={signOut}>SignOut</Button>
+      <Button
+        onClick={signOut}
+        bg="#FF6A66"
+        color="#ffffff"
+        letterSpacing="1px"
+      >
+        Sign Out
+      </Button>
     </Flex>
   );
 };

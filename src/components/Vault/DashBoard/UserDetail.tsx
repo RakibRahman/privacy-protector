@@ -6,12 +6,14 @@ import {
   Image,
   Heading,
   Button,
-  Center,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { CollectionProps } from "../../../interfaces/vaultTypes";
 import { Link } from "react-router-dom";
@@ -19,36 +21,38 @@ import { useFireStore } from "./hooks/useFireStore";
 import UpdateData from "./UpdateData";
 const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
   const { deleteUserLogin } = useFireStore();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Accordion allowToggle w="100%">
-      <AccordionItem>
-        <h2>
-          <AccordionButton
-            _expanded={{ bg: "tomato", color: "white" }}
-            _hover={{ opacity: 0.8, transform: "scale(1.1)" }}
-          >
-            <Box flex="1" textAlign="left">
-              <Flex gridGap="2" align="center" justify="center" pl="1" w="100%">
-                <Image
-                  w="3rem"
-                  h="3rem"
-                  objectFit="cover"
-                  src={login.favicon}
-                  alt={"💂‍♂️"}
-                />
+    <>
+      <Box
+        flex="1"
+        textAlign="left"
+        onClick={onOpen}
+        bg="#FFFFFF"
+        p="3"
+        cursor="pointer"
+      >
+        <Image
+          w="4rem"
+          h="4rem"
+          borderRadius="5px"
+          mx="auto"
+          objectFit="cover"
+          src={login.favicon}
+          alt={"💂‍♂️"}
+        />
 
-                <Box>
-                  <Text>{login.site}</Text>
-                  <Text fontWeight="bold">{login.username}</Text>
-                </Box>
-              </Flex>
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          <Center>
+        <Text>{login.site}</Text>
+        <Text fontWeight="bold">{login.username}</Text>
+      </Box>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Login Details</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
             <Flex flexDirection="column">
               <Box>
                 <Heading size="sm">Website URL:</Heading>
@@ -78,32 +82,25 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                   Created At: {login.createdAt.toDate().toDateString()}
                 </Text>
               </Box>
-              <Flex>
-                <Button
-                  mt="3"
-                  bg="red"
-                  color="white"
-                  mx="1"
-                  onClick={() => deleteUserLogin(login.id)}
-                >
-                  Delete
-                </Button>
-                {/* <Button
-                  mt="3"
-                  bg="skyblue"
-                  color="white"
-                  mx="1"
-                  onClick={() => updateUserLogin(login.id)}
-                >
-                  Edit
-                </Button> */}
-                <UpdateData login={login} />
-              </Flex>
             </Flex>
-          </Center>
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
+          </ModalBody>
+
+          <ModalFooter>
+            <Flex align="center" justify="center">
+              <Button
+                bg="red"
+                color="white"
+                mx="1"
+                onClick={() => deleteUserLogin(login.id)}
+              >
+                Delete
+              </Button>
+              <UpdateData login={login} />
+            </Flex>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 export default React.memo(UserDetail);
