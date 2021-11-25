@@ -29,9 +29,12 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
         flex="1"
         textAlign="left"
         onClick={onOpen}
-        bg="#FFFFFF"
+        bg="#22AE77"
+        color="#ffffff"
         p="3"
         cursor="pointer"
+        borderRadius="5px"
+        className="card"
       >
         <Image
           w="4rem"
@@ -49,8 +52,10 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Login Details</ModalHeader>
+        <ModalContent bg="#CAEDE0">
+          <ModalHeader bg="#23B179" color="white">
+            Login Details
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex flexDirection="column">
@@ -88,10 +93,14 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
           <ModalFooter>
             <Flex align="center" justify="center">
               <Button
-                bg="red"
+                bg="#C73636"
                 color="white"
                 mx="1"
                 onClick={() => deleteUserLogin(login.id)}
+                _hover={{
+                  background: "white",
+                  color: "teal.500",
+                }}
               >
                 Delete
               </Button>

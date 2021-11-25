@@ -15,9 +15,9 @@ export const DashBoard = () => {
       w="100%"
       minH="80vh"
       flexDirection="column"
-      justify="center"
+      justify="start"
       align="center"
-      bg="#E9EEF8"
+      bg="#DDF0E9"
     >
       <Flex gridGap="4">
         <UserInfo />

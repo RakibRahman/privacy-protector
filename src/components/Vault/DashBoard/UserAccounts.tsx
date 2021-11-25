@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import { UserData } from "../../../interfaces/vaultTypes";
 import UserDetail from "./UserDetail";
 interface IProps {
@@ -12,7 +12,6 @@ const UserAccounts: React.FC<IProps> = ({ userData }) => {
       overflow="hidden"
       templateColumns="repeat(3, 300px)"
       gap={6}
-      bgColor="#F7F6F9"
       p="2"
       placeContent="center"
     >

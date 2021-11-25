@@ -54,7 +54,7 @@ const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
       >
         <PopoverTrigger>
           <Button
-            bg="hotpink"
+            bg="#23B179"
             color="#fff"
             fontSize="16"
             onClick={open}
@@ -105,7 +105,16 @@ const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
                   />
                 </FormLabel>
 
-                <Button type="submit" bg="#1AB188" w="100%" fontSize="1.5rem">
+                <Button
+                  type="submit"
+                  bg="#1AB188"
+                  w="100%"
+                  fontSize="1.5rem"
+                  _hover={{
+                    background: "white",
+                    color: "teal.500",
+                  }}
+                >
                   Save
                 </Button>
               </Flex>
