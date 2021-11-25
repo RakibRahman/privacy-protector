@@ -25,6 +25,10 @@ const UserInfo: React.FC = () => {
         bg="#6658D3"
         color="#ffffff"
         letterSpacing="1px"
+        _hover={{
+          opacity: 0.7,
+          transform: "scale(1.03)",
+        }}
       >
         Sign Out
       </Button>

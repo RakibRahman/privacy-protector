@@ -45,7 +45,17 @@ const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
   };
   return (
     <Flex fontSize="1.8rem">
-      <Button bg="#23B179" color="#fff" fontSize="16" w="8rem" onClick={onOpen}>
+      <Button
+        bg="#23B179"
+        color="#fff"
+        fontSize="16"
+        w="8rem"
+        _hover={{
+          opacity: 0.7,
+          transform: "scale(1.03)",
+        }}
+        onClick={onOpen}
+      >
         <Text>Update</Text>
       </Button>
 

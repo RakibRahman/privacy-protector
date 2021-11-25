@@ -29,7 +29,7 @@ export const DashBoard = () => {
       </Flex>
       <Text>{error}</Text>
       {loading && (
-        <Box color="#1AB188" w="15" h="15">
+        <Box color="#1AB188" w="12" h="12">
           <Image src={Spinner} alt="Loading..." />
         </Box>
       )}

@@ -18,7 +18,9 @@ import {
 import { CollectionProps } from "../../../interfaces/vaultTypes";
 import { Link } from "react-router-dom";
 import { useFireStore } from "./hooks/useFireStore";
+import { FcGlobe, FcKey, FcReading, FcAbout } from "react-icons/fc";
 import UpdateData from "./UpdateData";
+
 const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
   const { deleteUserLogin } = useFireStore();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,10 +45,12 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
           mx="auto"
           objectFit="cover"
           src={login.favicon}
-          alt={"💂‍♂️"}
+          alt="🔗"
         />
 
-        <Text>{login.site}</Text>
+        <Heading size="md" letterSpacing="1px">
+          {login.site.replace(/.+\/\/|www.|\..+/g, "")}
+        </Heading>
         <Text fontWeight="bold" letterSpacing="1px">
           {login.username}
         </Text>
@@ -60,35 +64,55 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Flex flexDirection="column">
-              <Box>
-                <Heading size="sm">Website URL:</Heading>
-                <Link
-                  to={{
-                    pathname: `${
-                      login.site.includes("https://")
-                        ? login.site
-                        : `'https://'${login.site}`
-                    }`,
-                  }}
-                  target="_blank"
-                >
-                  {login.site}
-                </Link>
-              </Box>
-              <Box>
-                <Heading size="sm">UserName:</Heading>
-                <Text>{login.username}</Text>
-              </Box>
-              <Box>
-                <Heading size="sm">Password:</Heading>
-                <Text>{login.password}</Text>
-              </Box>
-              <Box>
-                <Text>
-                  Created At: {login.createdAt.toDate().toDateString()}
-                </Text>
-              </Box>
+            <Flex flexDirection="column" gridGap="3">
+              <Flex gridGap="4" align="center">
+                <FcGlobe fontSize="2.5rem" />
+                <Box>
+                  <Heading size="sm" letterSpacing="1px">
+                    Website
+                  </Heading>
+                  <Link
+                    to={{
+                      pathname: `${
+                        login.site.includes("https://")
+                          ? login.site
+                          : `https://${login.site}`
+                      }`,
+                    }}
+                    target="_blank"
+                  >
+                    {login.site}
+                  </Link>
+                </Box>
+              </Flex>
+              <Flex gridGap="4" align="center">
+                <FcReading fontSize="2.5rem" />
+                <Box>
+                  <Heading size="sm" letterSpacing="1px">
+                    ID/UserName
+                  </Heading>
+                  <Text>{login.username}</Text>
+                </Box>
+              </Flex>
+              <Flex gridGap="4" align="center">
+                <FcKey fontSize="2.5rem" />
+                <Box>
+                  <Heading size="sm" letterSpacing="1px">
+                    Password
+                  </Heading>
+                  <Text>{login.password}</Text>
+                </Box>
+              </Flex>
+
+              <Flex gridGap="4" align="center">
+                <FcAbout fontSize="2.5rem" />
+                <Box>
+                  <Text fontWeight="bold" letterSpacing="1px">
+                    Created At:
+                  </Text>
+                  <Text>{login.createdAt.toDate().toDateString()}</Text>
+                </Box>
+              </Flex>
             </Flex>
           </ModalBody>
 
@@ -100,8 +124,8 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                 mx="1"
                 onClick={() => deleteUserLogin(login.id)}
                 _hover={{
-                  background: "white",
-                  color: "teal.500",
+                  opacity: 0.7,
+                  transform: "scale(1.03)",
                 }}
               >
                 Delete

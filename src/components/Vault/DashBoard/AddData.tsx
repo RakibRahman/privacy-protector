@@ -56,6 +56,10 @@ export const AddData = () => {
             fontSize="16"
             onClick={open}
             w="8rem"
+            _hover={{
+              opacity: 0.7,
+              transform: "scale(1.03)",
+            }}
           >
             <Text>Add New Login</Text>
           </Button>
@@ -73,7 +77,7 @@ export const AddData = () => {
               <Flex w="100%" flexDirection="column" gridGap="3">
                 {/* <Text>{error}</Text> */}
                 <FormLabel>
-                  <Text my="1"> Site URL:</Text>
+                  <Text my="1">Website:</Text>
                   <Input
                     placeholder="Website Address"
                     name="site"
@@ -95,6 +99,7 @@ export const AddData = () => {
                   <Text my="1">Password:</Text>
 
                   <Input
+                    type="password"
                     placeholder="Password"
                     name="password"
                     value={formState.password}
