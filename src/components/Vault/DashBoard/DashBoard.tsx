@@ -18,7 +18,7 @@ export const DashBoard = () => {
   return (
     <Flex
       w="100%"
-      minH="80vh"
+      // minH="80vh"
       flexDirection="column"
       justify="start"
       align="center"

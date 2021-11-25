@@ -7,10 +7,11 @@ import Emergency from "../../assets/emergency.png";
 export const WelcomeComponent = () => {
   return (
     <Flex
+      fontSize={{ sm: "1rem", md: "1.5rem", lg: "2rem" }}
       w="100"
       gridGap="10"
       align="center"
-      mt="20px"
+      pt="20px"
       justify="center"
       pb="5"
       flexWrap="wrap"
@@ -33,7 +34,7 @@ export const WelcomeComponent = () => {
         />
       </Box>
       <VStack px="2" spacing="10px">
-        <Text textAlign="center" fontSize="2rem" color="#ffffff">
+        <Text textAlign="center" color="#ffffff">
           The Privacy Protector will help you to create a
           <Text as="strong" color="#f14e0d">
             {" "}
@@ -41,7 +42,7 @@ export const WelcomeComponent = () => {
           </Text>
           password
         </Text>
-        <Text color="#fff" fontSize="xl">
+        <Text color="#fff">
           Notice: Please keep your password{" "}
           <Text as="strong" color="#f14e0d">
             safe{" "}

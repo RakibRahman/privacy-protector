@@ -8,7 +8,7 @@ const SpecialCharacters: React.FC<FormElementProps> = ({
   onChange,
 }) => {
   return (
-    <Flex align="center" justify="space-between" w="52%">
+    <Flex align="center" justify="space-between" w="100%">
       <FormLabel>
         <Switch
           colorScheme="green"

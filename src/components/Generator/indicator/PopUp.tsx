@@ -17,7 +17,7 @@ import { MdInfo } from "react-icons/md";
 const PopUp = () => {
   return (
     <Box ml="auto" fontSize="1.8rem">
-      <Popover placement="right">
+      <Popover placement="auto">
         <PopoverTrigger>
           <Button bg="transparent" fontSize="26">
             <MdInfo color="#2196F3" />

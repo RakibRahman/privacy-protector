@@ -57,7 +57,7 @@ export const SignUp = () => {
           <Text color="#f14"> {netStatus}</Text>
 
           {loading && (
-            <Box color="#1AB188" w="10" h="10">
+            <Box color="#1AB188" w="10" h="10" mx="auto">
               <Image src={Spinner} alt="Loading..." />
             </Box>
           )}
