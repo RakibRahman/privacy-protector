@@ -18,11 +18,11 @@ const UserInfo: React.FC = () => {
       color="black"
       flexWrap="wrap"
     >
-      <ImUser color="#FF6A66" />
-      <Heading>{currentUser?.email}</Heading>
+      <ImUser color="#6658D3" />
+      <Heading color="#ffffff">{currentUser?.email}</Heading>
       <Button
         onClick={signOut}
-        bg="#FF6A66"
+        bg="#6658D3"
         color="#ffffff"
         letterSpacing="1px"
       >

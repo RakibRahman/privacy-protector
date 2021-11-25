@@ -51,8 +51,8 @@ export const AddData = () => {
       >
         <PopoverTrigger>
           <Button
-            bg="hotpink"
-            color="#fff"
+            bg="#6658D3"
+            color="#ffffff"
             fontSize="16"
             onClick={open}
             w="8rem"
@@ -61,9 +61,9 @@ export const AddData = () => {
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          bg="#ffffff"
+          bg="#6658D3"
           w={{ base: "300px", md: "400px" }}
-          color="#000000"
+          color="#ffffff"
         >
           <PopoverArrow />
           <PopoverCloseButton />
@@ -102,7 +102,7 @@ export const AddData = () => {
                   />
                 </FormLabel>
 
-                <Button type="submit" bg="#1AB188" w="100%" fontSize="1.5rem">
+                <Button type="submit" bg="#39C952" w="100%" fontSize="1.5rem">
                   Save
                 </Button>
               </Flex>

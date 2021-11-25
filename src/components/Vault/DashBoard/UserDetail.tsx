@@ -47,7 +47,9 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
         />
 
         <Text>{login.site}</Text>
-        <Text fontWeight="bold">{login.username}</Text>
+        <Text fontWeight="bold" letterSpacing="1px">
+          {login.username}
+        </Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>

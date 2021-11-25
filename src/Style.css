@@ -8,7 +8,8 @@
 html {
   scroll-behavior: smooth;
 }
-.generator__wrapper {
+.generator__wrapper,
+.app {
   background: linear-gradient(-45deg, #667eea, #000000, #2575fc, #000000);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;

@@ -10,7 +10,7 @@ import { Vault } from "./components/Vault/Vault";
 import Tips from "./components/Tips/Tips";
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Flex flexDirection="column" height="100vh" bg="#DDF0E9">
+    <Flex flexDirection="column" height="100vh" className="app">
       <Router>
         <Navbar />
         <Switch>

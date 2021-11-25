@@ -51,7 +51,7 @@ const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="#6658D3" color="#ffffff">
           <ModalHeader>Update Login Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
