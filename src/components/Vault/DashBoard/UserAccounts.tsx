@@ -10,7 +10,11 @@ const UserAccounts: React.FC<IProps> = ({ userData }) => {
     <Grid
       w={{ base: "100%" }}
       overflow="hidden"
-      templateColumns="repeat(3, 300px)"
+      templateColumns={{
+        sm: "repeat(1, 1fr)",
+        md: "repeat(2, 300px)",
+        lg: "repeat(3, 300px)",
+      }}
       gap={6}
       p="2"
       placeContent="center"

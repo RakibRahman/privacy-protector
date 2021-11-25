@@ -7,9 +7,11 @@ import {
   Button,
   FormLabel,
   Heading,
+  Image,
 } from "@chakra-ui/react";
 import { useAuth } from "./../context/context";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
+import Spinner from "../../../assets/spinner.svg";
 
 export const SignUp = () => {
   const initFormValues = {
@@ -54,7 +56,11 @@ export const SignUp = () => {
           <Text color="hotpink">{error}</Text>
           <Text color="#f14"> {netStatus}</Text>
 
-          {loading && <Text color="#1AB188">Signing Up..</Text>}
+          {loading && (
+            <Box color="#1AB188" w="10" h="10">
+              <Image src={Spinner} alt="Loading..." />
+            </Box>
+          )}
 
           <FormLabel>
             <Text my="1"> Email:</Text>

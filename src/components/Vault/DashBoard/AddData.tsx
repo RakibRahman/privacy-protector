@@ -44,7 +44,7 @@ export const AddData = () => {
   return (
     <Flex fontSize="1.8rem" mx="auto" align="center" justify="center">
       <Popover
-        placement="top"
+        placement="auto"
         isOpen={isOpen}
         returnFocusOnClose={false}
         onClose={close}

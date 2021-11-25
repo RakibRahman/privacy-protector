@@ -8,10 +8,12 @@ import {
   Heading,
   Button,
   Link,
+  Image,
 } from "@chakra-ui/react";
 import { useAuth } from "./../context/context";
 import { Link as RouterLink } from "react-router-dom";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
+import Spinner from "../../../assets/spinner.svg";
 
 export const LogIn = () => {
   const initFormValues = {
@@ -53,7 +55,11 @@ export const LogIn = () => {
       <Heading>Welcome Back</Heading>
       <Text color="#f14"> {error}</Text>
       <Text color="#f14"> {netStatus}</Text>
-      {loading && <Text color="#1AB188">Logging..</Text>}
+      {loading && (
+        <Box color="#1AB188" w="10" h="10">
+          <Image src={Spinner} alt="Loading..." />
+        </Box>
+      )}
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
           <FormLabel>

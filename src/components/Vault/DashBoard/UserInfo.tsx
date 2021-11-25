@@ -16,6 +16,7 @@ const UserInfo: React.FC = () => {
       justify="center"
       gridGap="4"
       color="black"
+      flexWrap="wrap"
     >
       <ImUser color="#FF6A66" />
       <Heading>{currentUser?.email}</Heading>

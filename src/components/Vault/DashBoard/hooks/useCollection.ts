@@ -7,6 +7,7 @@ import { CollectionProps } from "../../../../interfaces/vaultTypes";
 export const useCollection = (_query: [string, any, string]) => {
   const [userData, setUserData] = useState<CollectionProps[] | null>(null);
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
   const queryRef = useRef(_query).current;
 
   let ref = fbStore.collection("users");
@@ -30,6 +31,8 @@ export const useCollection = (_query: [string, any, string]) => {
         }
       } catch {
         setError("something went wrong / connection failed with firebase");
+      } finally {
+        setLoading(false);
       }
     };
     getUserData();
@@ -38,5 +41,5 @@ export const useCollection = (_query: [string, any, string]) => {
       getUserData();
     };
   }, [ref, queryRef]);
-  return { userData, error };
+  return { userData, error, loading };
 };
