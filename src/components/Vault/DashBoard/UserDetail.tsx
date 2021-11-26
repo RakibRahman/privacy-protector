@@ -28,6 +28,8 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
   return (
     <>
       <Box
+        mx="auto"
+        w="300px"
         flex="1"
         textAlign="left"
         onClick={onOpen}

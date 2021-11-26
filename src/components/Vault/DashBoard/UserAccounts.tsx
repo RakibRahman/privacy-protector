@@ -9,9 +9,10 @@ const UserAccounts: React.FC<IProps> = ({ userData }) => {
   return (
     <Grid
       w={{ base: "100%" }}
+      minH="auto"
       overflow="hidden"
       templateColumns={{
-        sm: "repeat(1, 1fr)",
+        sm: "repeat(1,1fr)",
         md: "repeat(2, 300px)",
         lg: "repeat(3, 300px)",
       }}
