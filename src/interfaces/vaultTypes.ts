@@ -8,7 +8,6 @@ export interface UserCredentialProps {
 }
 
 export interface AppContextInterface {
-  //TODO: update fn return type
   currentUser: CurrentUser;
   error: string;
   netStatus: string;
@@ -26,6 +25,7 @@ export interface AddDataProps {
 }
 export interface AddProps {
   formState: AddDataProps;
+  //TODO: update fn return type
   setFormState: React.Dispatch<React.SetStateAction<any>>;
 }
 export interface CollectionProps {

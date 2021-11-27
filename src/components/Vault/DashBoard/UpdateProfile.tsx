@@ -7,7 +7,9 @@ import {
   Button,
   Heading,
   Text,
+  useBoolean,
 } from "@chakra-ui/react";
+import { ShowPassword } from "./ShowPassword";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import { useAuth } from "../../../context/context";
 import { Link as RouterLink } from "react-router-dom";
@@ -21,6 +23,8 @@ export const UpdateProfile = React.memo(() => {
   };
 
   const [formState, setFormState] = useState<UserCredentialProps>(initValues);
+  const [flag, setFlag] = useBoolean();
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
@@ -34,15 +38,25 @@ export const UpdateProfile = React.memo(() => {
       console.log(formState);
     }
   };
+
   return (
-    <Box color="#ffffff">
+    <Box
+      color="#ffffff"
+      textAlign="center"
+      w={{ sm: "100%", lg: "50%" }}
+      mx="auto"
+      my="10"
+      px="4"
+    >
       <Heading>Update Profile</Heading>
 
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
           <FormLabel>
-            <Text my="1"> Email:</Text>
+            Email:
             <Input
+              my="1"
+              type="email"
               placeholder="Email Address"
               name="email"
               value={formState.email}
@@ -50,9 +64,11 @@ export const UpdateProfile = React.memo(() => {
             />
           </FormLabel>
           <FormLabel>
-            <Text my="1">Password:</Text>
+            Password:
             <Input
+              my="1"
               required
+              type={flag ? "text" : "password"}
               placeholder="Password"
               name="password"
               value={formState.password}
@@ -60,19 +76,31 @@ export const UpdateProfile = React.memo(() => {
             />
           </FormLabel>
           <FormLabel>
-            <Text my="1">Confirm Password:</Text>
+            Confirm Password:
             <Input
+              my="1"
               required
+              type={flag ? "text" : "password"}
               placeholder="Repeat Password"
-              name="password"
+              name="repeatPassword"
               value={formState.repeatPassword}
               onChange={onChangeHandler}
             />
           </FormLabel>
 
+          <ShowPassword flag={flag} setFlag={() => setFlag.toggle()} />
+
           <RouterLink to="/vault/dashboard">Return to DashBoard</RouterLink>
 
-          <Button type="submit" bg="#1AB188" w="100%" fontSize="1.5rem">
+          <Button
+            type="submit"
+            bg="#1AB188"
+            w="100%"
+            fontSize="1.5rem"
+            _hover={{
+              opacity: 0.8,
+            }}
+          >
             Update
           </Button>
         </Flex>
