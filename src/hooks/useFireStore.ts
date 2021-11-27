@@ -5,9 +5,9 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
-import { fbStore, fbTimeStamp } from "../../../../firebase";
-import { useAuth } from "../../context/context";
-import { AddDataProps } from "../../../../interfaces/vaultTypes";
+import { fbStore, fbTimeStamp } from "../firebase";
+import { useAuth } from "../context/context";
+import { AddDataProps } from "../interfaces/vaultTypes";
 
 export const useFireStore = () => {
   const ref = collection(fbStore, "users");

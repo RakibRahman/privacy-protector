@@ -10,7 +10,7 @@ import {
   Link,
   Image,
 } from "@chakra-ui/react";
-import { useAuth } from "./../context/context";
+import { useAuth } from "../../../context/context";
 import { Link as RouterLink } from "react-router-dom";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import Spinner from "../../../assets/spinner.svg";

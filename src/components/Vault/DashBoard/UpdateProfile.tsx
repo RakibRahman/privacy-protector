@@ -1,68 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Box,
   Flex,
-  Text,
+  Box,
   Input,
-  Button,
   FormLabel,
+  Button,
   Heading,
-  Image,
+  Text,
 } from "@chakra-ui/react";
-import { useAuth } from "../../../context/context";
-
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
-import Spinner from "../../../assets/spinner.svg";
+import { useAuth } from "../../../context/context";
+import { Link as RouterLink } from "react-router-dom";
 
-export const SignUp = () => {
-  const initFormValues = {
-    email: "",
+export const UpdateProfile = React.memo(() => {
+  const { currentUser } = useAuth();
+  const initValues = {
+    email: currentUser?.email,
     password: "",
     repeatPassword: "",
   };
-  const { error, signUp, netStatus } = useAuth()!;
 
-  const [formState, setFormState] =
-    useState<UserCredentialProps>(initFormValues);
-
-  const [loading, setLoading] = useState(false);
-
+  const [formState, setFormState] = useState<UserCredentialProps>(initValues);
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
   };
-
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formState.password.match(formState.repeatPassword)) {
-      alert("Please enter matching password");
-      return;
-    }
+
     try {
-      setLoading(true);
-      await signUp(formState);
     } catch {
-      alert("invalid sign up data");
-      console.log("sign up failed");
     } finally {
-      setLoading(false);
-      console.log("sign up success");
+      console.log(formState);
     }
   };
   return (
-    <Box>
-      <Heading>Sign Up for Free</Heading>
+    <Box color="#ffffff">
+      <Heading>Update Profile</Heading>
+
       <form onSubmit={onSubmit}>
         <Flex w="100%" flexDirection="column" gridGap="3">
-          <Text color="hotpink">{error}</Text>
-          <Text color="#f14"> {netStatus}</Text>
-
-          {loading && (
-            <Box color="#1AB188" w="10" h="10" mx="auto">
-              <Image src={Spinner} alt="Loading..." />
-            </Box>
-          )}
-
           <FormLabel>
             <Text my="1"> Email:</Text>
             <Input
@@ -74,30 +51,32 @@ export const SignUp = () => {
           </FormLabel>
           <FormLabel>
             <Text my="1">Password:</Text>
-
             <Input
-              placeholder="Your Password"
+              required
+              placeholder="Password"
               name="password"
               value={formState.password}
               onChange={onChangeHandler}
             />
           </FormLabel>
           <FormLabel>
-            <Text my="1">Repeat Password:</Text>
-
+            <Text my="1">Confirm Password:</Text>
             <Input
+              required
               placeholder="Repeat Password"
-              name="repeatPassword"
+              name="password"
               value={formState.repeatPassword}
               onChange={onChangeHandler}
             />
           </FormLabel>
 
+          <RouterLink to="/vault/dashboard">Return to DashBoard</RouterLink>
+
           <Button type="submit" bg="#1AB188" w="100%" fontSize="1.5rem">
-            Sign Up
+            Update
           </Button>
         </Flex>
       </form>
     </Box>
   );
-};
+});

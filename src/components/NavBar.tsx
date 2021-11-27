@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import { Flex, Spacer, Image, Text, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Safe from "../assets/safe.png";
 
-export const Navbar: React.FC = (props) => (
+export const Navbar = React.memo((props) => (
   <Flex
     color="white"
     p="2"
@@ -28,4 +28,4 @@ export const Navbar: React.FC = (props) => (
       <Link to="/tips">Tips</Link>
     </Flex>
   </Flex>
-);
+));

@@ -8,12 +8,15 @@ export interface UserCredentialProps {
 }
 
 export interface AppContextInterface {
+  //TODO: update fn return type
   currentUser: CurrentUser;
   error: string;
   netStatus: string;
-  signIn: (user: UserCredentialProps) => any;
+  signIn: (user: UserCredentialProps) => void;
   signUp: (user: UserCredentialProps) => void;
-  signOut: () => any;
+  signOut: () => void;
+  updateUserEmail: (user: UserCredentialProps) => void;
+  updateUserPassword: (user: UserCredentialProps) => void;
 }
 
 export interface AddDataProps {

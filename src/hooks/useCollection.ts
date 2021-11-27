@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { fbStore } from "../../../../firebase";
+import { fbStore } from "../firebase";
 import { getDocs, query, where, collection } from "firebase/firestore";
 import { CollectionReference } from "@firebase/firestore-types";
-import { CollectionProps } from "../../../../interfaces/vaultTypes";
+import { CollectionProps } from "../interfaces/vaultTypes";
 
 export const useCollection = (_query: [string, any, string]) => {
   const [userData, setUserData] = useState<CollectionProps[] | null>(null);

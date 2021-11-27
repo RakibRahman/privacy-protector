@@ -14,7 +14,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { AddDataProps } from "../../../interfaces/vaultTypes";
-import { useFireStore } from "./hooks/useFireStore";
+import { useFireStore } from "../../../hooks/useFireStore";
 import { CollectionProps } from "../../../interfaces/vaultTypes";
 
 const UpdateData: React.FC<{ login: CollectionProps }> = ({ login }) => {

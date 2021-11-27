@@ -2,11 +2,15 @@ import React from "react";
 import { Button, Flex, Heading } from "@chakra-ui/react";
 
 import { ImUser } from "react-icons/im";
-
-import { useAuth } from "./../context/context";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../../context/context";
 
 const UserInfo: React.FC = () => {
   const { currentUser, signOut } = useAuth()!;
+
+  {
+    /* //TODO: fix style */
+  }
   return (
     <Flex
       my="2"
@@ -20,6 +24,7 @@ const UserInfo: React.FC = () => {
     >
       <ImUser color="#6658D3" />
       <Heading color="#ffffff">{currentUser?.email}</Heading>
+      <Link to="/vault/updatemail">update Email</Link>
       <Button
         onClick={signOut}
         bg="#6658D3"

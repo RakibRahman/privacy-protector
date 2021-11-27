@@ -17,7 +17,8 @@ import {
 } from "@chakra-ui/react";
 import { CollectionProps } from "../../../interfaces/vaultTypes";
 import { Link } from "react-router-dom";
-import { useFireStore } from "./hooks/useFireStore";
+import { useFireStore } from "../../../hooks/useFireStore";
+
 import { FcGlobe, FcKey, FcReading, FcAbout } from "react-icons/fc";
 import UpdateData from "./UpdateData";
 

@@ -3,9 +3,9 @@ import {
   AppContextInterface,
   CurrentUser,
   UserCredentialProps,
-} from "../../../interfaces/vaultTypes";
+} from "../interfaces/vaultTypes";
 
-import { fbAuth } from "../../../firebase";
+import { fbAuth } from "../firebase";
 import { useHistory } from "react-router-dom";
 
 const AuthContext = React.createContext<AppContextInterface | null>(null);
@@ -59,14 +59,16 @@ export const AuthProvider: FC = ({ children }) => {
         history.push("/vault/dashboard");
       })
       .catch((error) => {
-        setError(error.message);
+        setError(`Error: ${error.message}`);
       });
   }
-
+  //  update user email
+  function updateUserEmail(user: UserCredentialProps) {}
+  function updateUserPassword(user: UserCredentialProps) {}
   useEffect(() => {
     const unsubscribe = fbAuth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-
+      //FIXME: memory leak issue
       //stores information about current logged userPass
       setLoading(false);
     });
@@ -79,7 +81,16 @@ export const AuthProvider: FC = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  const value = { currentUser, signIn, error, signUp, signOut, netStatus };
+  const value = {
+    currentUser,
+    signIn,
+    error,
+    signUp,
+    signOut,
+    netStatus,
+    updateUserEmail,
+    updateUserPassword,
+  };
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

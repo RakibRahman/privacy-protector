@@ -1,10 +1,12 @@
 import React from "react";
 import { Text, Flex, Image, Box } from "@chakra-ui/react";
-import { useAuth } from "./../context/context";
+import { useAuth } from "../../../context/context";
+
 import UserInfo from "./UserInfo";
 import { MemoizedAddData } from "./AddData";
 import UserAccounts from "./UserAccounts";
-import { useCollection } from "./hooks/useCollection";
+import { useCollection } from "../../../hooks/useCollection";
+
 import Spinner from "../../../assets/spinner.svg";
 
 export const DashBoard = () => {
