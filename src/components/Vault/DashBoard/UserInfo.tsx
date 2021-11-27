@@ -24,7 +24,18 @@ const UserInfo: React.FC = () => {
     >
       <ImUser color="#6658D3" />
       <Heading color="#ffffff">{currentUser?.email}</Heading>
-      <Link to="/vault/updateprofile">update Email</Link>
+
+      <Button
+        bg="#6658D3"
+        color="#ffffff"
+        letterSpacing="1px"
+        _hover={{
+          opacity: 0.7,
+          transform: "scale(1.03)",
+        }}
+      >
+        <Link to="/vault/updateprofile">Update Profile</Link>
+      </Button>
       <Button
         onClick={signOut}
         bg="#6658D3"

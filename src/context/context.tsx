@@ -63,8 +63,30 @@ export const AuthProvider: FC = ({ children }) => {
       });
   }
   //  update user email
-  function updateUserEmail(user: UserCredentialProps) {}
-  function updateUserPassword(user: UserCredentialProps) {}
+  function updateUserEmail(email: string) {
+    return currentUser
+      .updateEmail(email)
+      .then(() => {
+        console.log("Email Updated");
+      })
+      .catch((error) => {
+        alert("Log in again");
+        console.log(error.message);
+      });
+  }
+
+  //  update user password
+
+  function updateUserPassword(password: string) {
+    return currentUser
+      .updatePassword(password)
+      .then(() => {
+        console.log("password update success");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
   useEffect(() => {
     const unsubscribe = fbAuth.onAuthStateChanged((user) => {
       setCurrentUser(user);

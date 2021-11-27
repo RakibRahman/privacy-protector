@@ -12,10 +12,12 @@ import {
 import { ShowPassword } from "./ShowPassword";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import { useAuth } from "../../../context/context";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 
 export const UpdateProfile = React.memo(() => {
-  const { currentUser } = useAuth();
+  const { currentUser, updateUserEmail, updateUserPassword, signOut } =
+    useAuth();
+  const history = useHistory();
   const initValues = {
     email: currentUser?.email,
     password: "",
@@ -31,11 +33,23 @@ export const UpdateProfile = React.memo(() => {
   };
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    if (!formState.password.match(formState.repeatPassword)) {
+      alert("Please enter matching password");
+      return;
+    }
     try {
+      await updateUserEmail(formState.email);
+      await updateUserPassword(formState.password);
     } catch {
+      alert("resign");
+      signOut();
+      setTimeout(() => {
+        history.push("/vault/home");
+      }, 2000);
     } finally {
+      alert("done");
       console.log(formState);
+      history.push("/vault/dashboard");
     }
   };
 
@@ -67,7 +81,6 @@ export const UpdateProfile = React.memo(() => {
             Password:
             <Input
               my="1"
-              required
               type={flag ? "text" : "password"}
               placeholder="Password"
               name="password"
@@ -79,7 +92,6 @@ export const UpdateProfile = React.memo(() => {
             Confirm Password:
             <Input
               my="1"
-              required
               type={flag ? "text" : "password"}
               placeholder="Repeat Password"
               name="repeatPassword"

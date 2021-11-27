@@ -14,8 +14,8 @@ export interface AppContextInterface {
   signIn: (user: UserCredentialProps) => void;
   signUp: (user: UserCredentialProps) => void;
   signOut: () => void;
-  updateUserEmail: (user: UserCredentialProps) => void;
-  updateUserPassword: (user: UserCredentialProps) => void;
+  updateUserEmail: (email: string) => void;
+  updateUserPassword: (password: string) => void;
 }
 
 export interface AddDataProps {
