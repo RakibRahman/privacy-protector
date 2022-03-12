@@ -8,9 +8,9 @@ import { useAuth } from "../../../context/context";
 const UserInfo: React.FC = () => {
   const { currentUser, signOut } = useAuth()!;
 
-  {
+  
     /* //TODO: fix style */
-  }
+  
   return (
     <Flex
       my="2"

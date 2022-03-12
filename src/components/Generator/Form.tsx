@@ -13,11 +13,11 @@ import useToaster from "../../helpers/useToaster";
 export const Form: React.FC = () => {
   const initialFormState = {
     generatedPassword: "",
-    passLength: 20,
+    passLength: 10,
     digits: true,
-    uppercase: true,
+    uppercase: false,
     lowercase: true,
-    specialCharacters: true,
+    specialCharacters: false,
   };
 
   const { toast } = useToaster("Password created.", "Keep your password safe");
@@ -43,6 +43,7 @@ export const Form: React.FC = () => {
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     if (
       !formState.digits &&
       !formState.uppercase &&
@@ -51,11 +52,9 @@ export const Form: React.FC = () => {
     ) {
       toastError({ status: "error" });
     }
-    setFormState({ ...formState, generatedPassword: finalPassword });
 
-    if (formState.generatedPassword.length >= 8) {
-      toast();
-    }
+    setFormState({ ...formState, generatedPassword: finalPassword });
+    toast();
   };
   return (
     <form onSubmit={submitHandler} className="formGenerator">

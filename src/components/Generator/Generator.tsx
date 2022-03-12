@@ -2,6 +2,7 @@ import React from "react";
 import { Form } from "./Form";
 import { Box } from "@chakra-ui/react";
 import { WelcomeComponent } from "./Welcome";
+
 export const Generator: React.FC = () => {
   React.useEffect(() => {
     document.title = "Privacy Protector";
