@@ -62,6 +62,7 @@ export const AuthProvider: FC = ({ children }) => {
         setError(`Error: ${error.message}`);
       });
   }
+
   //  update user email
   function updateUserEmail(email: string) {
     return currentUser
@@ -87,6 +88,23 @@ export const AuthProvider: FC = ({ children }) => {
         console.log(error.message);
       });
   }
+
+  // reset user password
+  function resetUserPassword(email: string) {
+    return fbAuth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+        alert("password reset email sent");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  }
+
   useEffect(() => {
     const unsubscribe = fbAuth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -112,6 +130,7 @@ export const AuthProvider: FC = ({ children }) => {
     netStatus,
     updateUserEmail,
     updateUserPassword,
+    resetUserPassword,
   };
   return (
     <AuthContext.Provider value={value}>

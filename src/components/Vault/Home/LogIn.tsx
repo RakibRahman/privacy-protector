@@ -7,13 +7,19 @@ import {
   Input,
   Heading,
   Button,
-  Link,
   Image,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useAuth } from "../../../context/context";
-import { Link as RouterLink } from "react-router-dom";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import Spinner from "../../../assets/spinner.svg";
+import { ResetPassword } from "./ResetPassword";
 
 export const LogIn = () => {
   const initFormValues = {
@@ -25,6 +31,7 @@ export const LogIn = () => {
     password: "",
   };
   const { signIn, error, netStatus } = useAuth()!;
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // exclamation mark (!) after the call to the useAuth hook to tell the TypeScript compiler that its return value won’t be undefined.
 
@@ -37,6 +44,7 @@ export const LogIn = () => {
     const value = e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
   };
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -81,9 +89,7 @@ export const LogIn = () => {
               onChange={onChangeHandler}
             />
           </FormLabel>
-          <Link as={RouterLink} to="/vault/dashboard">
-            Password Forgotten?
-          </Link>
+          <Text onClick={onOpen}>Password Forgotten?</Text>
           <Text cursor="pointer" onClick={() => setFormState(clearFormValues)}>
             Clear Fields
           </Text>
@@ -92,6 +98,16 @@ export const LogIn = () => {
           </Button>
         </Flex>
       </form>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Recover Password</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <ResetPassword onClose={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
