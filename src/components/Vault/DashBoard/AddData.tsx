@@ -89,6 +89,7 @@ export const AddData = () => {
                   <Text my="1">Username:</Text>
 
                   <Input
+                    isRequired
                     placeholder="Your Username or email"
                     name="username"
                     value={formState.username}
@@ -99,6 +100,7 @@ export const AddData = () => {
                   <Text my="1">Password:</Text>
 
                   <Input
+                    isRequired
                     type="password"
                     placeholder="Password"
                     name="password"
