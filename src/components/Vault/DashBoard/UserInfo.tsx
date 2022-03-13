@@ -13,7 +13,7 @@ const UserInfo: React.FC = () => {
   
   return (
     <Flex
-      my="2"
+      my="10"
       className="user__info"
       fontSize="2rem"
       align="center"

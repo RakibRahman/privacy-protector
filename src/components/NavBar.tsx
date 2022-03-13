@@ -17,15 +17,14 @@ export const Navbar = React.memo((props) => (
     <Flex gridGap="2" align="center">
       <Image src={Safe} boxSize="40px" alt="logo" />
       <Heading fontSize={{ base: "15px", md: "30px", lg: "40px" }}>
-        <Link to="/"> Privacy Protector</Link>
+        <Link to="/">Privacy Protector</Link>
       </Heading>
     </Flex>
     <Spacer />
 
     <Flex fontSize={{ base: "18px", md: "30px" }} gridGap="4" cursor="pointer">
       <Link to="/vault/home">Vault</Link>
-      <Text>|</Text>
-      <Link to="/tips">Tips</Link>
+      <Text>Dark Mode</Text>
     </Flex>
   </Flex>
 ));

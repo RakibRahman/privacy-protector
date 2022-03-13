@@ -101,8 +101,6 @@ export const UpdateProfile = React.memo(() => {
 
           <ShowPassword flag={flag} setFlag={() => setFlag.toggle()} />
 
-          <RouterLink to="/vault/dashboard">Return to DashBoard</RouterLink>
-
           <Button
             type="submit"
             bg="#1AB188"
@@ -114,6 +112,7 @@ export const UpdateProfile = React.memo(() => {
           >
             Update
           </Button>
+          <RouterLink to="/vault/dashboard">Return to DashBoard</RouterLink>
         </Flex>
       </form>
     </Box>

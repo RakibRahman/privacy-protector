@@ -1,26 +1,31 @@
 import React from "react";
-import { ChakraProvider, Spacer, Flex, theme } from "@chakra-ui/react";
-
+import { ChakraProvider, Spacer, Flex,Box, theme } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-//my components
+
 import { Navbar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { Generator } from "./components/Generator/Generator";
 import { Vault } from "./components/Vault/Vault";
-import Tips from "./components/Tips/Tips";
+
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Flex flexDirection="column" height="100vh" className="app">
-      <Router>
+    <Router>
+      <Flex
+        flexDirection="column"
+        className="app"
+        minH='100vh'
+        h="100%"
+      >
         <Navbar />
-        <Switch>
-          <Route path="/" exact component={Generator} />
-          <Route path="/vault" component={Vault} />
-          <Route path="/tips" component={Tips} />
-        </Switch>
-        <Spacer />
+       <Box flex='1'>
+          <Switch>
+            <Route path="/" exact component={Generator} />
+            <Route path="/vault" component={Vault} />
+          </Switch>
+       </Box>
+        
         <Footer />
-      </Router>
-    </Flex>
+      </Flex>
+    </Router>
   </ChakraProvider>
 );

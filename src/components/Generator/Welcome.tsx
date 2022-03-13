@@ -8,12 +8,10 @@ export const WelcomeComponent = () => {
   return (
     <Flex
       fontSize={{ sm: "1rem", md: "1.5rem", lg: "2rem" }}
-      w="100"
+      w="100%"
       gridGap="10"
       align="center"
-      pt="20px"
       justify="center"
-      pb="5"
       flexWrap="wrap"
     >
       <Box
@@ -28,9 +26,11 @@ export const WelcomeComponent = () => {
           className="vibrate-1"
           src={Emergency}
           alt="background_abstract"
-          w="80%"
+          w="100px"
+          h="100px"
+          objectFit='cover'
           mx="auto"
-          my="20px"
+          my="10px"
         />
       </Box>
       <VStack px="2" spacing="10px">

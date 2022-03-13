@@ -12,7 +12,7 @@ import { SignUp } from "./SignUp";
 
 const Home = () => {
   return (
-    <Center className="vault__home" mt="20">
+    <Center className="vault__home" mt="20" p={5}>
       <Tabs
         isFitted
         variant="enclosed-colored"

@@ -24,6 +24,7 @@ export const DashBoard = () => {
       flexDirection="column"
       justify="start"
       align="center"
+      h='auto'
     >
       <Flex gridGap="4" flexWrap="wrap">
         <UserInfo />
