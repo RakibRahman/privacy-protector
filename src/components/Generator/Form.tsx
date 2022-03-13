@@ -9,6 +9,7 @@ import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
 import { InitialFormState } from "../../interfaces/generatorTypes";
 import { Box, Button } from "@chakra-ui/react";
 import useToaster from "../../helpers/useToaster";
+import { nanoid } from "nanoid";
 
 export const Form: React.FC = () => {
   const initialFormState = {
@@ -20,10 +21,18 @@ export const Form: React.FC = () => {
     specialCharacters: false,
   };
 
-  const { toast } = useToaster("Password created.", "Keep your password safe");
+  const { toast } = useToaster(
+    "Password created.",
+    "Keep your password safe",
+    "success",
+    "rakib"
+  );
+
   const { toast: toastError } = useToaster(
     "Password Not Created.",
-    "Must Select At least One Option"
+    "Must Select At least One Option",
+    "error",
+    "pain"
   );
 
   const [formState, setFormState] =
@@ -50,12 +59,25 @@ export const Form: React.FC = () => {
       !formState.lowercase &&
       !formState.specialCharacters
     ) {
-      toastError({ status: "error" });
+      if (!toastError.isActive("pain")) {
+        toastError();
+      }
     }
-
-    setFormState({ ...formState, generatedPassword: finalPassword });
-    toast();
+    if (
+      formState.digits ||
+      formState.uppercase ||
+      formState.lowercase ||
+      formState.specialCharacters
+    ) {
+      setFormState({ ...formState, generatedPassword: finalPassword });
+      if (!toast.isActive("rakib")) {
+        toast();
+      }
+    }
   };
+
+  React.useEffect(() => {}, [finalPassword]);
+
   return (
     <form onSubmit={submitHandler} className="formGenerator">
       <Indicator password={formState.generatedPassword} />

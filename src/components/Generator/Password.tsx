@@ -5,7 +5,19 @@ import { PasswordProps } from "../../interfaces/generatorTypes";
 import useToaster from "../../helpers/useToaster";
 const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
   const { hasCopied, onCopy } = useClipboard(generatedPassword);
-  const { toast } = useToaster("Password copied", "Keep your password safe");
+  const { toast } = useToaster(
+    "Password copied",
+    "Keep your password safe",
+    "success",
+    "copyPass"
+  );
+
+  const { toast: toastError } = useToaster(
+    "No Password to copy",
+    "Enter or Generate New Password",
+    "error",
+    "copyPassError"
+  );
 
   return (
     <Flex
@@ -35,8 +47,17 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
         cursor="copy"
         borderRadius="xl"
         onClick={() => {
-          onCopy();
-          toast();
+          if (generatedPassword.length > 0) {
+            onCopy();
+            if (!toast.isActive("copyPass")) {
+              toast();
+            }
+          }
+          if (generatedPassword.length <= 0) {
+            if (!toast.isActive("copyPassError")) {
+              toastError();
+            }
+          }
         }}
         w="160px"
         textAlign="center"
