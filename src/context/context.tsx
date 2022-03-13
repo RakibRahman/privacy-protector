@@ -7,6 +7,7 @@ import {
 
 import { fbAuth } from "../firebase";
 import { useHistory } from "react-router-dom";
+import useToaster from "../helpers/useToaster";
 
 const AuthContext = React.createContext<AppContextInterface | null>(null);
 
@@ -18,7 +19,78 @@ export const AuthProvider: FC = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<CurrentUser>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+
   const [netStatus, setNetStatus] = useState<string>("");
+
+  const { toast: toastReset } = useToaster(
+    "Password reset link sent successfully",
+    "Check your Mailbox",
+    "success",
+    "recoverPass"
+  );
+
+  const { toast: toastResetError } = useToaster(
+    "Password reset failed",
+    error,
+    "error",
+    "recoverErrPass"
+  );
+
+  const { toast: updateToast } = useToaster(
+    "Profile Update Success",
+    "Your profile has been updated successfully",
+    "success",
+    "updateProfile"
+  );
+
+  const { toast: updateErrorToast } = useToaster(
+    "Profile Update Failed",
+    error,
+    "error",
+    "updateErrProfile"
+  );
+
+  const { toast: loginToast } = useToaster(
+    "Successfully Logged in",
+    "",
+    "success",
+    "loginProfile"
+  );
+
+  const { toast: loginErrorToast } = useToaster(
+    "Log In Failed",
+    error,
+    "error",
+    "loginErrProfile"
+  );
+
+  const { toast: signUpToast } = useToaster(
+    "Successfully Signed Up",
+    "Your account is created successfully",
+    "success",
+    "signProfile"
+  );
+
+  const { toast: signUpErrorToast } = useToaster(
+    "Signing Up Failed",
+    error,
+    "error",
+    "signProfile"
+  );
+
+  const { toast: signOutToast } = useToaster(
+    "Successfully Signed Out",
+    "Your account is successfully logged out",
+    "success",
+    "signOut"
+  );
+
+  const { toast: signOutErrorToast } = useToaster(
+    "Signing Out Failed",
+    error,
+    "error",
+    "signOutError"
+  );
 
   const history = useHistory();
 
@@ -28,15 +100,16 @@ export const AuthProvider: FC = ({ children }) => {
     return fbAuth
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        alert("sign up successful");
+        // const user = userCredential.user;
+        // console.log(user);
+        signUpToast();
         history.push("/vault/dashboard");
-
-        // window.location.reload();
       })
       .catch((error) => {
         setError(error.message);
+        if (error) {
+          signUpErrorToast();
+        }
       });
   }
   // user sign out
@@ -45,10 +118,13 @@ export const AuthProvider: FC = ({ children }) => {
       .signOut()
       .then(() => {
         history.push("/vault/home");
-        console.log(" Sign-out successful");
+        signOutToast();
       })
-      .catch(() => {
-        console.log("An error happened.");
+      .catch((error) => {
+        setError(`Error: ${error.message}`);
+        if (error) {
+          signOutErrorToast(error);
+        }
       });
   }
   // user sign in
@@ -57,9 +133,13 @@ export const AuthProvider: FC = ({ children }) => {
       .signInWithEmailAndPassword(user.email, user.password)
       .then(() => {
         history.push("/vault/dashboard");
+        loginToast();
       })
       .catch((error) => {
         setError(`Error: ${error.message}`);
+        if (error) {
+          loginErrorToast(error);
+        }
       });
   }
 
@@ -68,11 +148,13 @@ export const AuthProvider: FC = ({ children }) => {
     return currentUser
       .updateEmail(email)
       .then(() => {
-        console.log("Email Updated");
+        updateToast();
       })
       .catch((error) => {
-        alert("Log in again");
-        console.log(error.message);
+        setError(error.message);
+        if (error) {
+          updateErrorToast(error);
+        }
       });
   }
 
@@ -82,10 +164,13 @@ export const AuthProvider: FC = ({ children }) => {
     return currentUser
       .updatePassword(password)
       .then(() => {
-        console.log("password update success");
+        updateToast();
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
+        if (error) {
+          updateErrorToast(error);
+        }
       });
   }
 
@@ -94,14 +179,14 @@ export const AuthProvider: FC = ({ children }) => {
     return fbAuth
       .sendPasswordResetEmail(email)
       .then(() => {
-        // Password reset email sent!
-        // ..
-        alert("password reset email sent");
+        toastReset();
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        setError(errorMessage);
+        if (error) {
+          toastResetError();
+        }
       });
   }
 

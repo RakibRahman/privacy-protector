@@ -10,7 +10,6 @@ export const Navbar = React.memo((props) => (
     align="center"
     justify="center"
     w="100%"
-    h="80px"
     bgGradient="linear(to-l, #0BAB64,#3BB78F)"
     borderBottom="1px solid #fff"
   >

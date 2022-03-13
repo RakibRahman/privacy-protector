@@ -40,14 +40,11 @@ export const UpdateProfile = React.memo(() => {
       await updateUserEmail(formState.email);
       await updateUserPassword(formState.password);
     } catch {
-      alert("resign");
       signOut();
       setTimeout(() => {
         history.push("/vault/home");
       }, 2000);
     } finally {
-      alert("done");
-      console.log(formState);
       history.push("/vault/dashboard");
     }
   };

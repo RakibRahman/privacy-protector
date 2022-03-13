@@ -10,41 +10,45 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { useAuth } from "../../../context/context";
-import Spinner from "../../../assets/spinner.svg";
+import useToaster from "../../../helpers/useToaster";
 
 export const ResetPassword: React.FC<{ onClose: () => void }> = ({
   onClose,
 }) => {
   const { resetUserPassword, error, netStatus } = useAuth()!;
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState<string>("");
+
+  
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    resetUserPassword(email);
+    try {
+      resetUserPassword(email);
+    } catch {
+      console.log(error);
+      
+    } finally {
+      onClose();
+      
+    }
   };
 
   return (
     <Box fontSize="1rem">
-      <Heading>Don't Worry!</Heading>
+      <Heading size="lg">Don't Worry!</Heading>
       <form onSubmit={onSubmit}>
-        <Heading as="h4">
-          Just provide your email
-          <br />
-          and we can do the rest
+        <Heading size="md">
+          Just provide your email and we can do the rest 😁
         </Heading>
         <Box>
           <Text color="#f14"> {error}</Text>
           <Text color="#f14"> {netStatus}</Text>
-          {loading && (
-            <Box color="#1AB188" w="10" h="10">
-              <Image src={Spinner} alt="Loading..." />
-            </Box>
-          )}
         </Box>
-        <FormControl>
+        <FormControl my={3}>
           <FormLabel>
-            <Text my="1">Email:</Text>
+            <Text my={1} fontSize="1.5rem">
+              Email:
+            </Text>
             <Input
               required
               placeholder="Email Address"
@@ -56,20 +60,27 @@ export const ResetPassword: React.FC<{ onClose: () => void }> = ({
         </FormControl>
 
         <Button
+          letterSpacing="2px"
           type="submit"
           bg="#1AB188"
           w="100%"
           fontSize="1.5rem"
           color="#ffffff"
         >
-          Next
+          Submit
         </Button>
       </form>
 
       <Text textAlign="center" my={3} fontSize="1.5rem">
         Did you remember?
-              <Text as="span" color="#1AB188" onClick={onClose} fontWeight="bold">
-                  {" "}
+        <Text
+          cursor="pointer"
+          as="span"
+          color="#1AB188"
+          onClick={onClose}
+          fontWeight="bold"
+        >
+          {" "}
           Sign In
         </Text>
       </Text>

@@ -23,8 +23,8 @@ import { ResetPassword } from "./ResetPassword";
 
 export const LogIn = () => {
   const initFormValues = {
-    email: "admin@gmail.com",
-    password: "admin123",
+    email: "super.admin@gmail.com",
+    password: "@superadmin#",
   };
   const clearFormValues = {
     email: "",
@@ -51,13 +51,12 @@ export const LogIn = () => {
       setLoading(true);
       await signIn(formState);
     } catch {
-      alert("invalid data");
       console.log("log in failed");
     } finally {
       setLoading(false);
-      console.log("success");
     }
   };
+
   return (
     <Box>
       <Heading>Welcome Back</Heading>
@@ -73,6 +72,7 @@ export const LogIn = () => {
           <FormLabel>
             <Text my="1"> Email:</Text>
             <Input
+              required
               placeholder="Email Address"
               name="email"
               value={formState.email}
@@ -83,13 +83,18 @@ export const LogIn = () => {
             <Text my="1">Password:</Text>
 
             <Input
+              type="password"
+              required
+              autoComplete="on"
               placeholder="Your Password"
               name="password"
               value={formState.password}
               onChange={onChangeHandler}
             />
           </FormLabel>
-          <Text onClick={onOpen}>Password Forgotten?</Text>
+          <Text onClick={onOpen} cursor="pointer">
+            Password Forgotten?
+          </Text>
           <Text cursor="pointer" onClick={() => setFormState(clearFormValues)}>
             Clear Fields
           </Text>

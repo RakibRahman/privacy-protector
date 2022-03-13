@@ -9,7 +9,7 @@ import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
 import { InitialFormState } from "../../interfaces/generatorTypes";
 import { Box, Button } from "@chakra-ui/react";
 import useToaster from "../../helpers/useToaster";
-import { nanoid } from "nanoid";
+
 
 export const Form: React.FC = () => {
   const initialFormState = {

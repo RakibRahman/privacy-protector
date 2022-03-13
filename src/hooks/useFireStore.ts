@@ -8,11 +8,39 @@ import {
 import { fbStore, fbTimeStamp } from "../firebase";
 import { useAuth } from "../context/context";
 import { AddDataProps } from "../interfaces/vaultTypes";
+import useToaster from "../helpers/useToaster";
 
 export const useFireStore = () => {
   const ref = collection(fbStore, "users");
 
   const { currentUser } = useAuth()!;
+
+  const { toast: addDataToast } = useToaster(
+    "Log In Added Successfully",
+    "",
+    "success",
+    "addData"
+  );
+  const { toast: errToast } = useToaster(
+    "Operation Failed",
+    "Something went wrong",
+    "error",
+    "addErrData"
+  );
+
+  const { toast: deleteDataToast } = useToaster(
+    "Log In Deleted Successfully",
+    "",
+    "success",
+    "deleteData"
+  );
+
+  const { toast: updateDataToast } = useToaster(
+    "Login Updated Successfully",
+    "",
+    "success",
+    "updateData"
+  );
 
   const addUserData = async (value: AddDataProps) => {
     if (!currentUser) return;
@@ -26,20 +54,21 @@ export const useFireStore = () => {
         createdAt: createdAt,
         favicon: `http://logo.clearbit.com/${value.site}`,
       });
+      addDataToast();
     } catch (e) {
-      console.error("Error adding document: ", e);
+      errToast();
     }
   };
   const deleteUserLogin = async (id: string) => {
     const userDoc = doc(fbStore, "users", id);
     try {
       await deleteDoc(userDoc);
+      deleteDataToast();
     } catch (e) {
-      console.error("Error deleting document: ", e);
+      errToast();
     }
   };
   const updateUserLogin = async (id: string, value: AddDataProps) => {
-    console.log(id);
     const userDoc = doc(fbStore, "users", id);
 
     try {
@@ -49,9 +78,9 @@ export const useFireStore = () => {
         password: value.password,
         favicon: `http://logo.clearbit.com/${value.site}`,
       });
-      console.log("update successful");
+      updateDataToast();
     } catch (e) {
-      console.error("Error updating document: ", e);
+      errToast();
     }
   };
 
