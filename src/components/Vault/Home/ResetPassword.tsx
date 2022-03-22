@@ -7,10 +7,8 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Image,
 } from "@chakra-ui/react";
 import { useAuth } from "../../../context/context";
-import useToaster from "../../../helpers/useToaster";
 
 export const ResetPassword: React.FC<{ onClose: () => void }> = ({
   onClose,
@@ -18,18 +16,14 @@ export const ResetPassword: React.FC<{ onClose: () => void }> = ({
   const { resetUserPassword, error, netStatus } = useAuth()!;
   const [email, setEmail] = useState<string>("");
 
-  
-
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       resetUserPassword(email);
     } catch {
       console.log(error);
-      
     } finally {
       onClose();
-      
     }
   };
 
