@@ -18,11 +18,13 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  useClipboard,
   Stack,
 } from "@chakra-ui/react";
 import { CollectionProps } from "../../../interfaces/vaultTypes";
-import { Link } from "react-router-dom";
 import { useFireStore } from "../../../hooks/useFireStore";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import useToaster from "../../../helpers/useToaster";
 
 import {
   FcGlobe,
@@ -31,7 +33,6 @@ import {
   FcAbout,
   FcInspection,
 } from "react-icons/fc";
-
 
 import { AddDataProps } from "../../../interfaces/vaultTypes";
 
@@ -47,6 +48,15 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
 
   const [formState, setFormState] = useState<AddDataProps>(initFormValues);
   const [loading, setLoading] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
+
+  const [value, setValue] = useState<string>("");
+  const { onCopy } = useClipboard(value);
+
+  const handlePassToggle = () => setShow(!show);
+
+  const { toast } = useToaster("Copied", "", "success", "copyLogin");
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
@@ -101,7 +111,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
         </Text>
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Login Details</ModalHeader>
@@ -110,48 +120,122 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
             <form onSubmit={onSubmit}>
               <Stack spacing={4}>
                 <FormLabel>
-                  <Text my="1"> Site URL:</Text>
-                  <Input
-                    placeholder="Website Address"
-                    name="site"
-                    value={formState.site}
-                    onChange={onChangeHandler}
-                  />
+                  <Text mb={1} fontWeight="bold">
+                    Site:
+                  </Text>
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<FcGlobe color="gray.300" />}
+                    />
+                    <Input
+                      type="text"
+                      placeholder="Website Address"
+                      name="site"
+                      value={formState.site}
+                      onChange={onChangeHandler}
+                    />
+                    <InputRightElement>
+                      <Button
+                        h="1.75rem"
+                        size="sm"
+                        onClick={() => {
+                          setValue(formState.site);
+                          onCopy();
+                          if (!toast.isActive("copyLogin")) {
+                            toast();
+                          }
+                        }}
+                      >
+                        <FcInspection color="green.500" />
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
                 </FormLabel>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<FcGlobe color="gray.300" />}
-                  />
-                  <Input type="tel" placeholder="Phone number" />
-                  <InputRightElement
-                    onClick={()=>console.log('ok')}
-                    children={<FcInspection color="green.500" />}
-                  />
-                </InputGroup>
                 <FormLabel>
-                  <Text my="1">Username:</Text>
+                  <Text my={1} fontWeight="bold">
+                    Username:
+                  </Text>
 
-                  <Input
-                    placeholder="Your Username or email"
-                    name="username"
-                    value={formState.username}
-                    onChange={onChangeHandler}
-                  />
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<FcReading color="gray.300" />}
+                    />
+                    <Input
+                      placeholder="Your Username or email"
+                      name="username"
+                      value={formState.username}
+                      onChange={onChangeHandler}
+                    />
+                    <InputRightElement>
+                      <Button
+                        h="1.75rem"
+                        size="sm"
+                        onClick={() => {
+                          setValue(formState.username);
+                          onCopy();
+                          if (!toast.isActive("copyLogin")) {
+                            toast();
+                          }
+                        }}
+                      >
+                        <FcInspection color="green.500" />
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
                 </FormLabel>
                 <FormLabel>
-                  <Text my="1">Password:</Text>
+                  <Text my={1} fontWeight="bold">
+                    Password:
+                  </Text>
 
-                  <Input
-                    placeholder="Password"
-                    name="password"
-                    value={formState.password}
-                    onChange={onChangeHandler}
-                  />
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<FcKey color="gray.300" />}
+                    />
+
+                    <Input
+                      placeholder="Password"
+                      name="password"
+                      type={show ? "text" : "password"}
+                      value={formState.password}
+                      onChange={onChangeHandler}
+                    />
+                    <InputRightElement>
+                      <Text
+                        cursor="pointer"
+                        fontSize="xs"
+                        mr="5px"
+                        onClick={handlePassToggle}
+                      >
+                        {show ? (
+                          <AiFillEyeInvisible fontSize="1.5rem" />
+                        ) : (
+                          <AiFillEye fontSize="1.5rem" />
+                        )}
+                      </Text>
+                      <Button
+                        mr="30px"
+                        h="1.75rem"
+                        size="md"
+                        onClick={() => {
+                          setValue(formState.password);
+                          onCopy();
+                          if (!toast.isActive("copyLogin")) {
+                            toast();
+                          }
+                        }}
+                      >
+                        <FcInspection color="green.500" />
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
                 </FormLabel>
               </Stack>
 
-              <Flex gridGap="4" align="center">
+              <Flex gridGap="4" align="center" mt={3}>
                 <FcAbout fontSize="2.5rem" />
                 <Box>
                   <Text fontWeight="bold" letterSpacing="1px">
@@ -160,7 +244,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                   <Text>{login.createdAt.toDate().toDateString()}</Text>
                 </Box>
               </Flex>
-              <Stack align="center" justify="center">
+              <Flex align="center" justify="flex-end">
                 <Button
                   bg="#C73636"
                   color="white"
@@ -187,7 +271,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                 >
                   Save
                 </Button>
-              </Stack>
+              </Flex>
             </form>
           </ModalBody>
         </ModalContent>

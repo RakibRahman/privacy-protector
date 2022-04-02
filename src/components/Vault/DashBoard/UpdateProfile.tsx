@@ -30,6 +30,7 @@ export const UpdateProfile = React.memo(() => {
     const value = e.target.value;
     setFormState({ ...formState, [e.target.name]: value });
   };
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formState.password.match(formState.repeatPassword)) {
