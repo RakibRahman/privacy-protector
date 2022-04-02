@@ -4,7 +4,7 @@ const useToaster = (
   title: string,
   description: string,
   toastStatus: "info" | "warning" | "success" | "error",
-  id: string
+  id?: string
 ) => {
   const toast = useToast({
     id,

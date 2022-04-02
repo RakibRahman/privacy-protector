@@ -1,7 +1,19 @@
 import React from "react";
-import { Button, Flex, Heading } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Heading,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from "@chakra-ui/react";
 
-import { ImUser } from "react-icons/im";
+import { VscAccount, VscSync,VscSignOut, VscTriangleDown } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/context";
 
@@ -18,36 +30,24 @@ const UserInfo: React.FC = () => {
       fontSize="2rem"
       align="center"
       justify="center"
-      gridGap="4"
-      color="black"
+      gridGap={4}
+      color="#3c4b66"
       flexWrap="wrap"
     >
-      <ImUser color="#6658D3" />
-      <Heading color="#ffffff">{currentUser?.email}</Heading>
+      <VscAccount color="#6658D3" />
+      {/* <Heading>{currentUser?.email}</Heading> */}
+      <Menu isLazy>
+        <MenuButton as={Button} rightIcon={<VscTriangleDown />}>
+          {currentUser?.email}
+        </MenuButton>
+        <MenuList fontSize="md">
+          <MenuItem icon={<VscSync />}>
+            <Link to="/vault/updateprofile">Update Profile</Link>
+          </MenuItem>
 
-      <Button
-        bg="#6658D3"
-        color="#ffffff"
-        letterSpacing="1px"
-        _hover={{
-          opacity: 0.7,
-          transform: "scale(1.03)",
-        }}
-      >
-        <Link to="/vault/updateprofile">Update Profile</Link>
-      </Button>
-      <Button
-        onClick={signOut}
-        bg="#6658D3"
-        color="#ffffff"
-        letterSpacing="1px"
-        _hover={{
-          opacity: 0.7,
-          transform: "scale(1.03)",
-        }}
-      >
-        Sign Out
-      </Button>
+          <MenuItem icon={<VscSignOut/>} onClick={signOut}>Sign Out</MenuItem>
+        </MenuList>
+      </Menu>
     </Flex>
   );
 };

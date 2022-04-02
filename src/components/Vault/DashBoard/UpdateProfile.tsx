@@ -51,7 +51,7 @@ export const UpdateProfile = React.memo(() => {
 
   return (
     <Box
-      color="#ffffff"
+      color="#a9b8c9"
       textAlign="center"
       w={{ sm: "100%", lg: "50%" }}
       mx="auto"

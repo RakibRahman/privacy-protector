@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Image, Box } from "@chakra-ui/react";
+import { Text, Flex, Image, Box} from "@chakra-ui/react";
 import { useAuth } from "../../../context/context";
 
 import UserInfo from "./UserInfo";
@@ -17,6 +17,7 @@ export const DashBoard = () => {
     currentUser?.uid,
   ]);
 
+
   return (
     <Flex
       w="100%"
@@ -24,7 +25,7 @@ export const DashBoard = () => {
       flexDirection="column"
       justify="start"
       align="center"
-      h='auto'
+      h="auto"
     >
       <Flex gridGap="4" flexWrap="wrap">
         <UserInfo />
@@ -36,6 +37,7 @@ export const DashBoard = () => {
           <Image src={Spinner} alt="Loading..." />
         </Box>
       )}
+
       {userData && <UserAccounts userData={userData} />}
     </Flex>
   );
