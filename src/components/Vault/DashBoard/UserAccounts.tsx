@@ -26,12 +26,11 @@ const UserAccounts: React.FC<IProps> = ({ userData }) => {
   return (
     <Box w="100%" h="100%">
       <Flex gridGap="4" align="center" w="400px" m="10px auto 20px">
-        <RiUserSearchFill fontSize="35px" color="#6658D3" />
+        <RiUserSearchFill fontSize="35px" color="#f5f5f5" />
         <FormControl>
           <Input
-            fontWeight="bold"
-            border="none"
-            color="#a9b8c9"
+            borderColor="white"
+            color="#f5f5f5"
             type="text"
             placeholder="Search UserName or Site"
             onChange={onSearchHandler}

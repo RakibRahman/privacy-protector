@@ -10,7 +10,8 @@ export const Navbar = React.memo((props) => (
     align="center"
     justify="center"
     w="100%"
-    bgGradient="linear(to-l, #0BAB64,#3BB78F)"
+    // bgGradient="linear(to-l, #0BAB64,#3BB78F)"
+    bg="#14591D"
     borderBottom="1px solid #fff"
   >
     <Flex gridGap="2" align="center">

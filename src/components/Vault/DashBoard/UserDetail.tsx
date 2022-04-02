@@ -88,7 +88,8 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
         onClick={onOpen}
         bg="#22AE77"
         color="#ffffff"
-        p="3"
+        px={3}
+        py={5}
         cursor="pointer"
         borderRadius="5px"
         className="card"
@@ -113,7 +114,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="#2B4141" color="#f5f5f5">
           <ModalHeader>Login Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>

@@ -33,7 +33,7 @@ const UserInfo: React.FC = () => {
       color="#3c4b66"
       flexWrap="wrap"
     >
-      <VscAccount color="#6658D3" />
+      <VscAccount color="#f5f5f5" />
    
       <Menu>
         <MenuButton as={Button} rightIcon={<VscTriangleDown />}>

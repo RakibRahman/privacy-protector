@@ -35,8 +35,8 @@ export const AddData = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formState.username || !formState.password) {
-      alert("Must be a valid username or password")
-}
+      alert("Must be a valid username or password");
+    }
     await addUserData(formState);
     setFormState(initFormValues);
     onClose();
@@ -44,7 +44,7 @@ export const AddData = () => {
   return (
     <Flex fontSize="1.8rem" mx="auto" align="center" justify="center">
       <Button
-        bg="#6658D3"
+        bg="#2B4141"
         color="#ffffff"
         fontSize="16"
         w="8rem"
@@ -59,7 +59,7 @@ export const AddData = () => {
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="#2B4141" color="#f5f5f5">
           <ModalHeader>Add New Login Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -67,7 +67,9 @@ export const AddData = () => {
               <Flex w="100%" flexDirection="column" gridGap="3">
                 {/* <Text>{error}</Text> */}
                 <FormLabel>
-                  <Text my="1">Website:</Text>
+                  <Text my={1} fontWeight="bold">
+                    Website:
+                  </Text>
                   <Input
                     placeholder="Website Address"
                     name="site"
@@ -76,10 +78,11 @@ export const AddData = () => {
                   />
                 </FormLabel>
                 <FormLabel>
-                  <Text my="1">Username:</Text>
+                  <Text my={1} fontWeight="bold">
+                    Username:
+                  </Text>
 
                   <Input
-                   
                     placeholder="Your Username or email"
                     name="username"
                     value={formState.username}
@@ -87,10 +90,11 @@ export const AddData = () => {
                   />
                 </FormLabel>
                 <FormLabel>
-                  <Text my="1">Password:</Text>
+                  <Text my={1} fontWeight="bold">
+                    Password:
+                  </Text>
 
                   <Input
-               
                     type="password"
                     placeholder="Password"
                     name="password"
@@ -104,7 +108,7 @@ export const AddData = () => {
                   colorScheme="green"
                   w="100%"
                   fontSize="1.5rem"
-                   variant='outline'
+                  variant="outline"
                 >
                   Save
                 </Button>

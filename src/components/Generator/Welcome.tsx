@@ -13,6 +13,7 @@ export const WelcomeComponent = () => {
       align="center"
       justify="center"
       flexWrap="wrap"
+      mt={{base:2}}
     >
       <Box
         w="120px"

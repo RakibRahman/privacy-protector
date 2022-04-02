@@ -33,6 +33,7 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
         w="100%"
         minH="40px"
         p="2"
+        borderColor="#f5f5f5"
         value={generatedPassword}
         onChange={onChange}
         name="generatedPassword"
@@ -41,11 +42,11 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
       <Spacer />
       <Button
         _hover={{
-          background: "white",
+          background: "none",
           color: "teal.500",
         }}
         cursor="copy"
-        borderRadius="xl"
+        borderRadius="lg"
         onClick={() => {
           if (generatedPassword.length > 0) {
             onCopy();
@@ -62,7 +63,8 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
         w="160px"
         textAlign="center"
         color={hasCopied ? "#fdc51a" : "white"}
-        background={hasCopied ? "#008050" : "#cb4e00"}
+        variant="outline"
+        colorScheme={hasCopied ? "green" : "white"}
       >
         {hasCopied ? "Copied" : "Copy to Clipboard"}
       </Button>

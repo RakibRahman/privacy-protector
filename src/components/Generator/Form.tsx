@@ -10,7 +10,6 @@ import { InitialFormState } from "../../interfaces/generatorTypes";
 import { Box, Button } from "@chakra-ui/react";
 import useToaster from "../../helpers/useToaster";
 
-
 export const Form: React.FC = () => {
   const initialFormState = {
     generatedPassword: "",
@@ -94,13 +93,14 @@ export const Form: React.FC = () => {
 
       <Button
         _hover={{
-          background: "white",
+          background: "none",
           color: "teal.500",
         }}
         type="submit"
-        bg="#1BAF72"
-        color="#ffffff"
+        // bg="#1BAF72"
+        colorScheme="orange"
         fontSize="20px"
+        variant="outline"
         letterSpacing="1px"
       >
         Generate Password
