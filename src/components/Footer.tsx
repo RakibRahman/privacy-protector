@@ -1,8 +1,12 @@
 import * as React from "react";
 import { Text, Center, Link } from "@chakra-ui/react";
+import { useTheme } from "../context/themeContext";
+
 export const Footer = () => {
+  const { color, bg } = useTheme()!;
+
   return (
-    <Center bg="#14591D" h="10" fontSize="20" color="#ffffff">
+    <Center bg={bg} h="10" fontSize="20" mt={{base:'auto',sm:10,lg:'auto'}} color={color}>
       <Text>
         Made by
         <Link href="https://github.com/RakibRahman"> Rakib </Link> With ❤

@@ -3,7 +3,10 @@ import { Flex, Button, Spacer, useClipboard, Input } from "@chakra-ui/react";
 
 import { PasswordProps } from "../../interfaces/generatorTypes";
 import useToaster from "../../helpers/useToaster";
+import { useTheme } from "../../context/themeContext";
+
 const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
+  const { color } = useTheme()!;
   const { hasCopied, onCopy } = useClipboard(generatedPassword);
   const { toast } = useToaster(
     "Password copied",
@@ -62,9 +65,9 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
         }}
         w="160px"
         textAlign="center"
-        color={hasCopied ? "#fdc51a" : "white"}
+        // color={hasCopied ? "#fdc51a" : "white"}
         variant="outline"
-        colorScheme={hasCopied ? "green" : "white"}
+        colorScheme={color}
       >
         {hasCopied ? "Copied" : "Copy to Clipboard"}
       </Button>

@@ -52,7 +52,6 @@ export const UpdateProfile = React.memo(() => {
 
   return (
     <Box
-      color="#a9b8c9"
       textAlign="center"
       w={{ sm: "100%", lg: "50%" }}
       mx="auto"
@@ -101,7 +100,8 @@ export const UpdateProfile = React.memo(() => {
 
           <Button
             type="submit"
-            bg="#1AB188"
+            colorScheme="green.500"
+            variant="outline"
             w="100%"
             fontSize="1.5rem"
             _hover={{

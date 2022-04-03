@@ -9,9 +9,9 @@ html {
   scroll-behavior: smooth;
 }
 .generator__wrapper,
-.app {
+/* .app {
   background-color: #0a210f;
-}
+} */
 
 .generator {
   background: #131515;
@@ -26,7 +26,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  color: white;
 }
 
 .card:hover {

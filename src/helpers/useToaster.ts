@@ -14,6 +14,7 @@ const useToaster = (
     duration: 4000,
     isClosable: true,
     position: "bottom",
+    variant:'solid',
   });
 
   return { toast };

@@ -7,10 +7,12 @@ import Digits from "./formElements/Digits";
 import SpecialCharacters from "./formElements/SpecialCharacters";
 import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
 import { InitialFormState } from "../../interfaces/generatorTypes";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import useToaster from "../../helpers/useToaster";
+import { useTheme } from "../../context/themeContext";
 
 export const Form: React.FC = () => {
+  const { color, bg } = useTheme()!;
   const initialFormState = {
     generatedPassword: "",
     passLength: 10,
@@ -78,33 +80,35 @@ export const Form: React.FC = () => {
   React.useEffect(() => {}, [finalPassword]);
 
   return (
-    <form onSubmit={submitHandler} className="formGenerator">
-      <Indicator password={formState.generatedPassword} />
-      <Box>
-        <Password
-          generatedPassword={formState.generatedPassword}
-          onChange={onChangeHandler}
-        />
-        <SliderComponent formState={formState} setFormState={setFormState} />
-        <Letters formState={formState} onChange={onChangeHandler} />
-        <Digits formState={formState} onChange={onChangeHandler} />
-        <SpecialCharacters formState={formState} onChange={onChangeHandler} />
-      </Box>
+    <form onSubmit={submitHandler}>
+      <Flex flexDirection="column" gridGap="5px">
+        <Indicator password={formState.generatedPassword} />
+        <Box>
+          <Password
+            generatedPassword={formState.generatedPassword}
+            onChange={onChangeHandler}
+          />
+          <SliderComponent formState={formState} setFormState={setFormState} />
+          <Letters formState={formState} onChange={onChangeHandler} />
+          <Digits formState={formState} onChange={onChangeHandler} />
+          <SpecialCharacters formState={formState} onChange={onChangeHandler} />
+        </Box>
 
-      <Button
-        _hover={{
-          background: "none",
-          color: "teal.500",
-        }}
-        type="submit"
-        // bg="#1BAF72"
-        colorScheme="orange"
-        fontSize="20px"
-        variant="outline"
-        letterSpacing="1px"
-      >
-        Generate Password
-      </Button>
+        <Button
+          _hover={{
+            background: "none",
+            color: "teal.500",
+          }}
+          type="submit"
+          // bg="#1BAF72"
+          colorScheme={color}
+          fontSize="20px"
+          variant="outline"
+          letterSpacing="1px"
+        >
+          Generate Password
+        </Button>
+      </Flex>
     </form>
   );
 };

@@ -20,6 +20,7 @@ export const AuthProvider: FC = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
 
+
   const [netStatus, setNetStatus] = useState<string>("");
 
   const { toast: toastReset } = useToaster(

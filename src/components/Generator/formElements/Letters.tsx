@@ -21,7 +21,7 @@ export const Letters: React.FC<FormElementProps> = ({
         </FormLabel>
 
         <Text
-          color={formState.uppercase ? "#408b16" : "#c52121"}
+          color={formState.uppercase ? "green.500" : "red.500"}
           fontWeight="bold"
         >
           (A..Z)
@@ -40,7 +40,7 @@ export const Letters: React.FC<FormElementProps> = ({
         </FormLabel>
 
         <Text
-          color={formState.lowercase ? "#408b16" : "#c52121"}
+          color={formState.lowercase ? "green.500" : "red.500"}
           fontWeight="bold"
         >
           (a..z)

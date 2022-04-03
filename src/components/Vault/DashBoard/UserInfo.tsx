@@ -20,17 +20,14 @@ import { useAuth } from "../../../context/context";
 const UserInfo: React.FC = () => {
   const { currentUser, signOut } = useAuth()!;
 
-  /* //TODO: fix style */
-
   return (
     <Flex
-      my="10"
-      className="user__info"
+      w='300px'
+      mt="10"
       fontSize="2rem"
       align="center"
       justify="center"
       gridGap={4}
-      color="#3c4b66"
       flexWrap="wrap"
     >
       <VscAccount color="#f5f5f5" />

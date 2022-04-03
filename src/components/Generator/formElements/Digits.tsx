@@ -17,7 +17,7 @@ const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
         Digits
       </FormLabel>
 
-      <Text color={formState.digits ? "#408b16" : "#c52121"} fontWeight="bold">
+      <Text color={formState.digits ? "green.500" : "red.300"} fontWeight="bold">
         (0..9)
       </Text>
     </Flex>

@@ -12,6 +12,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { AddDataProps } from "../../../interfaces/vaultTypes";
 import { useFireStore } from "../../../hooks/useFireStore";
@@ -26,6 +27,8 @@ export const AddData = () => {
   const { addUserData } = useFireStore();
   const [formState, setFormState] = useState<AddDataProps>(initFormValues);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const bg = useColorModeValue("#f5f5f5", "#2B4141");
+  const color = useColorModeValue("#2B4141", "#f5f5f5");
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -42,24 +45,25 @@ export const AddData = () => {
     onClose();
   };
   return (
-    <Flex fontSize="1.8rem" mx="auto" align="center" justify="center">
+    <Flex fontSize="1.8rem" mx='auto' align="center" justify="center" px={2}>
       <Button
-        bg="#2B4141"
-        color="#ffffff"
+        bg={bg}
+        color={color}
         fontSize="16"
-        w="8rem"
+    
         _hover={{
           opacity: 0.7,
           transform: "scale(1.03)",
         }}
         onClick={onOpen}
+        mt={{base:0,lg:10}}
       >
         Add Login
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent bg="#2B4141" color="#f5f5f5">
+        <ModalContent bg={bg} color={color} px={2}>
           <ModalHeader>Add New Login Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
