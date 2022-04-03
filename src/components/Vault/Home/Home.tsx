@@ -6,11 +6,16 @@ import {
   Tab,
   TabPanel,
   Center,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { LogIn } from "./LogIn";
 import { SignUp } from "./SignUp";
 
 const Home = () => {
+
+  const bg = useColorModeValue("#6184D8", "#24313C");
+  const color = useColorModeValue("#24313C", "#f5f5f5");
+
   return (
     <Center className="vault__home" mt="20" p={5}>
       <Tabs
@@ -19,14 +24,14 @@ const Home = () => {
         align="center"
         w="600px"
         border="1px"
-        bg="#24313C"
-        color="#FFFFFF"
+        bg={bg}
+        color={color}
       >
         <TabList mb="1em">
-          <Tab bg="#435259" _selected={{ color: "white", bg: "#1AB188" }}>
+          <Tab  _selected={{ color: "white", bg: "#1AB188" }}>
             Log In
           </Tab>
-          <Tab bg="#435259" _selected={{ color: "white", bg: "#1AB188" }}>
+          <Tab  _selected={{ color: "white", bg: "#1AB188" }}>
             Sign Up
           </Tab>
         </TabList>

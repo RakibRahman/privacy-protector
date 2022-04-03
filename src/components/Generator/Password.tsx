@@ -65,7 +65,7 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
         }}
         w="160px"
         textAlign="center"
-        // color={hasCopied ? "#fdc51a" : "white"}
+        color="#f5f5f5"
         variant="outline"
         colorScheme={color}
       >

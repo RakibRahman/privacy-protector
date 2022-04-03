@@ -51,9 +51,9 @@ export const SignUp = () => {
   };
   return (
     <Box>
-      <Heading>Sign Up for Free</Heading>
+      <Heading color="#f5f5f5">Sign Up</Heading>
       <form onSubmit={onSubmit}>
-        <Flex w="100%" flexDirection="column" gridGap="3">
+        <Flex w="100%" flexDirection="column" gridGap="3" color="#f5f5f5">
           <Text color="hotpink">{error}</Text>
           <Text color="#f14"> {netStatus}</Text>
 

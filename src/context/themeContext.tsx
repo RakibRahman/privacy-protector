@@ -13,8 +13,8 @@ export function useTheme() {
 }
 
 export const ThemeProvider: FC = ({ children }) => {
-  const bg = useColorModeValue("#36C9C6", "#14591D");
-  const color = useColorModeValue("gray.200", "#f5f5f5");
+  const bg = useColorModeValue("#FF8641", "#14591D");
+  const color = useColorModeValue("#f5f5f5", "#f5f5f5");
   
 
   const value: ThemeProps = { bg, color,  };

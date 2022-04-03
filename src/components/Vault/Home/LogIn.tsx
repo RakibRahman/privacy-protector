@@ -59,7 +59,7 @@ export const LogIn = () => {
 
   return (
     <Box>
-      <Heading>Welcome Back</Heading>
+      <Heading color="#f5f5f5">Welcome Back</Heading>
       <Text color="#f14"> {error}</Text>
       <Text color="#f14"> {netStatus}</Text>
       {loading && (
@@ -68,7 +68,7 @@ export const LogIn = () => {
         </Box>
       )}
       <form onSubmit={onSubmit}>
-        <Flex w="100%" flexDirection="column" gridGap="3">
+        <Flex w="100%" flexDirection="column" gridGap="3" color="#f5f5f5">
           <FormLabel>
             <Text my="1"> Email:</Text>
             <Input

@@ -9,7 +9,7 @@ const SpecialCharacters: React.FC<FormElementProps> = ({
 }) => {
   return (
     <Flex align="center" justify="space-between" w="100%">
-      <FormLabel>
+      <FormLabel color="#f5f5f5">
         <Switch
           colorScheme="green"
           name="specialCharacters"

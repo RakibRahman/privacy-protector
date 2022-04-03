@@ -6,7 +6,7 @@ import { Flex, Text, FormLabel, Switch } from "@chakra-ui/react";
 const Digits: React.FC<FormElementProps> = ({ formState, onChange }) => {
   return (
     <Flex align="center" justify="space-between" w="100%">
-      <FormLabel htmlFor="digits">
+      <FormLabel htmlFor="digits" color="#f5f5f5">
         <Switch
           colorScheme="green"
           name="digits"

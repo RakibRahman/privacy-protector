@@ -56,7 +56,7 @@ export const AddData = () => {
           transform: "scale(1.03)",
         }}
         onClick={onOpen}
-        mt={{base:0,lg:10}}
+        mt={{base:0,md:10,lg:10}}
       >
         Add Login
       </Button>

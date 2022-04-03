@@ -11,7 +11,7 @@ export const Generator: React.FC = () => {
 
   
   return (
-    <Box p={{ sm: "2", md: "4" }} className="generator__wrapper">
+    <Box p={{ sm: 2, md: 4 }} className="generator__wrapper">
       <WelcomeComponent />
       <Box borderBottom="1px solid #fff" my={3}></Box>
 
@@ -21,7 +21,7 @@ export const Generator: React.FC = () => {
         borderRadius="xl"
         w={{ sm: "100%", lg: "600px" }}
         mx="auto"
-        mt="2px"
+        mt="10px"
         p="4"
       >
         <Form />

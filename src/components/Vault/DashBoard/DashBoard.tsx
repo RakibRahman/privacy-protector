@@ -26,7 +26,7 @@ export const DashBoard = () => {
       align="center"
       h="auto"
     >
-      <Flex gridGap="4" flexWrap="wrap" align="center">
+      <Flex gridGap="4" flexWrap="wrap" align="center" mb={3}>
         <UserInfo />
         <MemoizedAddData />
       </Flex>

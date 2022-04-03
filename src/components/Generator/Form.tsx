@@ -9,10 +9,10 @@ import { handleGeneratePassword } from "../../helpers/handleGeneratePassword";
 import { InitialFormState } from "../../interfaces/generatorTypes";
 import { Box, Button, Flex } from "@chakra-ui/react";
 import useToaster from "../../helpers/useToaster";
-import { useTheme } from "../../context/themeContext";
+
 
 export const Form: React.FC = () => {
-  const { color, bg } = useTheme()!;
+
   const initialFormState = {
     generatedPassword: "",
     passLength: 10,
@@ -101,7 +101,7 @@ export const Form: React.FC = () => {
           }}
           type="submit"
           // bg="#1BAF72"
-          colorScheme={color}
+          color="#f5f5f5"
           fontSize="20px"
           variant="outline"
           letterSpacing="1px"

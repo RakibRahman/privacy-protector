@@ -43,7 +43,7 @@ export const Navbar = () => {
         align="center"
       >
         <Link to="/vault/home">Vault</Link>
-        <Button fontSize='xl' bg="none" onClick={toggleColorMode}>
+        <Button _hover={{bg:'none'}} _focus={{border:'none'}} fontSize='xl' bg="none" onClick={toggleColorMode}>
           {colorMode === "light" ? <FaMoon /> : <FaSun />}
         </Button>
       </Flex>

@@ -20,7 +20,7 @@ export const App = () => {
    <>
       <Router>
         <ThemeProvider>
-          <Flex flexDirection="column" bg={mainBg} minH="100vh" h="100%">
+          <Flex flexDirection="column" bg={mainBg} minH="100vh" h="100%" gridGap="3">
             <Navbar />
             <Box flex="1">
               <Switch>

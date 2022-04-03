@@ -9,7 +9,7 @@ export const Letters: React.FC<FormElementProps> = ({
   return (
     <>
       <Flex align="center" justify="space-between" w="100%">
-        <FormLabel htmlFor="uppercase">
+        <FormLabel htmlFor="uppercase" color="#f5f5f5">
           <Switch
             colorScheme="green"
             name="uppercase"
@@ -28,7 +28,7 @@ export const Letters: React.FC<FormElementProps> = ({
         </Text>
       </Flex>
       <Flex align="center" justify="space-between" w="100%">
-        <FormLabel htmlFor="lowercase">
+        <FormLabel htmlFor="lowercase" color="#f5f5f5">
           <Switch
             colorScheme="green"
             name="lowercase"

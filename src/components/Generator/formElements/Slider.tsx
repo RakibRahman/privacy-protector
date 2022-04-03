@@ -55,7 +55,7 @@ const SliderComponent: React.FC<SliderProps> = ({
           </SliderThumb>
         </Slider>
         <Flex fontSize="lg" align="center" gridGap="2">
-          <Text>Password Length:</Text>
+          <Text color="#f5f5f5">Password Length:</Text>
           <Text
             fontSize="xl"
             color={
