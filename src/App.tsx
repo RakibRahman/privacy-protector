@@ -32,7 +32,7 @@ export const App = () => {
                 </Suspense>
               </Switch>
             </Box>
-            <Footer />
+            {/* <Footer /> */}
           </Flex>
         </ThemeProvider>
       </Router>

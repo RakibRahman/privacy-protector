@@ -57,6 +57,7 @@ const UpdateProfile = React.memo(() => {
       mx="auto"
       my="10"
       px="4"
+      color="#f5f5f5"
     >
       <Heading>Update Profile</Heading>
 
