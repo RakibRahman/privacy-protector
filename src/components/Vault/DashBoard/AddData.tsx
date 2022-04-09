@@ -61,7 +61,7 @@ export const AddData = () => {
         Add Login
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size='sm'>
         <ModalOverlay />
         <ModalContent bg={bg} color={color} px={2}>
           <ModalHeader>Add New Login Details</ModalHeader>

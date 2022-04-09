@@ -116,7 +116,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
         </Text>
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size='sm'>
         <ModalOverlay />
         <ModalContent bg={bg} color={color}>
           <ModalHeader>Login Details</ModalHeader>

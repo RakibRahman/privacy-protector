@@ -103,16 +103,18 @@ export const LogIn = () => {
           </Button>
         </Flex>
       </form>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Recover Password</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <ResetPassword onClose={onClose} />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+   
+        <Modal isOpen={isOpen} onClose={onClose} isCentered size='sm'>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Recover Password</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <ResetPassword onClose={onClose} />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+ 
     </Box>
   );
 };
