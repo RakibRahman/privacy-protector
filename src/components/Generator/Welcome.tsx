@@ -33,26 +33,28 @@ export const WelcomeComponent = () => {
           alt="background_abstract"
           w="100px"
           h="100px"
-          objectFit='cover'
+          objectFit="cover"
           mx="auto"
           my="10px"
         />
       </Box>
       <VStack px="2" spacing="10px">
         <Text textAlign="center" color={color}>
-          The Privacy Protector will help you to create a
+          The Privacy Protector will help you to safeguard
           <Text as="strong" color="#f14e0d">
             {" "}
-            secure{" "}
+            your online presence.
           </Text>
-          password
         </Text>
         <Text color={color} textAlign="center">
-          Notice: Please keep your password{" "}
+          Notice: Please use{" "}
+          <Text as="strong" fontWeight="bold" color="#f14e0d">
+            Vault
+          </Text>{" "}
+          to keep your password{" "}
           <Text as="strong" color="#f14e0d">
-            safe{" "}
+            safe.
           </Text>
-          in case you forget it.
         </Text>
       </VStack>
     </Flex>

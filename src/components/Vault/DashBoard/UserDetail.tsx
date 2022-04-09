@@ -255,7 +255,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                   bg="#C73636"
                   variant='outline'
                   color="white"
-                  mx="1"
+                  mr="4"
                   onClick={() => deleteUserLogin(login.id)}
                   _hover={{
                     opacity: 0.7,
