@@ -9,7 +9,7 @@ import { useCollection } from "../../../hooks/useCollection";
 
 import Spinner from "../../../assets/spinner.svg";
 
-export const DashBoard = () => {
+ const DashBoard = () => {
   const { currentUser } = useAuth()!;
   const { userData, error, loading } = useCollection([
     "uid",
@@ -41,3 +41,4 @@ export const DashBoard = () => {
     </Flex>
   );
 };
+export default DashBoard;

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "../../context/context";
-import { UpdateProfile } from "./DashBoard/UpdateProfile";
 import Home from "./Home/Home";
-import { DashBoard } from "./DashBoard/DashBoard";
 
-export const Vault = () => {
+const DashBoard = lazy(() => import("./DashBoard/DashBoard"));
+const UpdateProfile = lazy(() => import("./DashBoard/UpdateProfile"));
+
+const Vault = () => {
   React.useEffect(() => {
     document.title = "Vault || Privacy Protector";
   }, []);
@@ -18,15 +19,18 @@ export const Vault = () => {
             <Route exact path="/vault/home">
               <Home />
             </Route>
-            <Route path="/vault/dashboard">
-              <DashBoard />
-            </Route>
-            <Route path="/vault/updateprofile">
-              <UpdateProfile />
-            </Route>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Route path="/vault/dashboard">
+                <DashBoard />
+              </Route>
+              <Route path="/vault/updateprofile">
+                <UpdateProfile />
+              </Route>
+            </Suspense>
           </Switch>
         </AuthProvider>
       </Router>
     </>
   );
 };
+export default Vault;

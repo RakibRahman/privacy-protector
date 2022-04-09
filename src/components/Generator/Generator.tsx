@@ -3,7 +3,7 @@ import { Form } from "./Form";
 import { Box } from "@chakra-ui/react";
 import { WelcomeComponent } from "./Welcome";
 import { useTheme } from "../../context/themeContext";
-export const Generator: React.FC = () => {
+const Generator: React.FC = () => {
   const { bg } = useTheme()!;
   React.useEffect(() => {
     document.title = "Privacy Protector";
@@ -29,3 +29,4 @@ export const Generator: React.FC = () => {
     </Box>
   );
 };
+export default Generator;

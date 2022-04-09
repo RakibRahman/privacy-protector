@@ -13,7 +13,7 @@ import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import { useAuth } from "../../../context/context";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 
-export const UpdateProfile = React.memo(() => {
+const UpdateProfile = React.memo(() => {
   const { currentUser, updateUserEmail, updateUserPassword, signOut } =
     useAuth();
   const history = useHistory();
@@ -116,3 +116,5 @@ export const UpdateProfile = React.memo(() => {
     </Box>
   );
 });
+
+export default UpdateProfile;

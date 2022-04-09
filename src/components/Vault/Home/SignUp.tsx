@@ -14,7 +14,7 @@ import { useAuth } from "../../../context/context";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import Spinner from "../../../assets/spinner.svg";
 
-export const SignUp = () => {
+ const SignUp = () => {
   const initFormValues = {
     email: "",
     password: "",
@@ -101,3 +101,4 @@ export const SignUp = () => {
     </Box>
   );
 };
+export default SignUp;

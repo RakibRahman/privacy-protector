@@ -1,37 +1,40 @@
-import React from "react";
-import {
-  Flex,
-  Box,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import React, { lazy, Suspense } from "react";
+import { Flex, Box, useColorModeValue } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import { Navbar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
-import { Generator } from "./components/Generator/Generator";
-import { Vault } from "./components/Vault/Vault";
 import { ThemeProvider } from "./context/themeContext";
 
+const Generator = lazy(() => import("./components/Generator/Generator"));
+const Vault = lazy(() => import("./components/Vault/Vault"));
+
 export const App = () => {
- 
   const mainBg = useColorModeValue("#7F96FF", "#0a210f");
 
   return (
-   <>
+    <>
       <Router>
         <ThemeProvider>
-          <Flex flexDirection="column" bg={mainBg} minH="100vh" h="100%" gridGap="3">
+          <Flex
+            flexDirection="column"
+            bg={mainBg}
+            minH="100vh"
+            h="100%"
+            gridGap="3"
+          >
             <Navbar />
             <Box flex="1">
               <Switch>
-                <Route path="/" exact component={Generator} />
-                <Route path="/vault" component={Vault} />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Route path="/" exact component={Generator} />
+                  <Route path="/vault" component={Vault} />
+                </Suspense>
               </Switch>
             </Box>
             <Footer />
           </Flex>
         </ThemeProvider>
       </Router>
-   </>
+    </>
   );
 };

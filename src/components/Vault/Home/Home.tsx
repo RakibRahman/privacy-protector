@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
   Tabs,
   TabList,
@@ -6,13 +6,11 @@ import {
   Tab,
   TabPanel,
   Center,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { LogIn } from "./LogIn";
-import { SignUp } from "./SignUp";
-
+const SignUp = lazy(() => import("./SignUp"));
 const Home = () => {
-
   const bg = useColorModeValue("#6184D8", "#24313C");
   const color = useColorModeValue("#24313C", "#f5f5f5");
 
@@ -28,19 +26,18 @@ const Home = () => {
         color={color}
       >
         <TabList mb="1em">
-          <Tab  _selected={{ color: "white", bg: "#1AB188" }}>
-            Log In
-          </Tab>
-          <Tab  _selected={{ color: "white", bg: "#1AB188" }}>
-            Sign Up
-          </Tab>
+          <Tab _selected={{ color: "white", bg: "#1AB188" }}>Log In</Tab>
+          <Tab _selected={{ color: "white", bg: "#1AB188" }}>Sign Up</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
             <LogIn />
           </TabPanel>
           <TabPanel>
-            <SignUp />
+            <Suspense fallback={<>Loading...</>}>
+              {" "}
+              <SignUp />
+            </Suspense>
           </TabPanel>
         </TabPanels>
       </Tabs>
