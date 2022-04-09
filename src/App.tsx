@@ -3,6 +3,7 @@ import { Flex, Box, useColorModeValue } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
+import { FallBack } from "./components/FallBack/FallBack";
 import { ThemeProvider } from "./context/themeContext";
 
 const Generator = lazy(() => import("./components/Generator/Generator"));
@@ -25,7 +26,7 @@ export const App = () => {
             <Navbar />
             <Box flex="1">
               <Switch>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<FallBack />}>
                   <Route path="/" exact component={Generator} />
                   <Route path="/vault" component={Vault} />
                 </Suspense>

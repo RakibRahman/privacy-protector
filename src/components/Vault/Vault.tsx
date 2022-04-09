@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "../../context/context";
 import Home from "./Home/Home";
-
+import { FallBack } from "../FallBack/FallBack";
 const DashBoard = lazy(() => import("./DashBoard/DashBoard"));
 const UpdateProfile = lazy(() => import("./DashBoard/UpdateProfile"));
 
@@ -19,7 +19,7 @@ const Vault = () => {
             <Route exact path="/vault/home">
               <Home />
             </Route>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<FallBack />}>
               <Route path="/vault/dashboard">
                 <DashBoard />
               </Route>

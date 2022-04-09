@@ -8,8 +8,10 @@ import {
   Center,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { FallBack } from "../../FallBack/FallBack";
 import { LogIn } from "./LogIn";
 const SignUp = lazy(() => import("./SignUp"));
+
 const Home = () => {
   const bg = useColorModeValue("#6184D8", "#24313C");
   const color = useColorModeValue("#24313C", "#f5f5f5");
@@ -34,8 +36,7 @@ const Home = () => {
             <LogIn />
           </TabPanel>
           <TabPanel>
-            <Suspense fallback={<>Loading...</>}>
-              {" "}
+            <Suspense fallback={<FallBack />}>
               <SignUp />
             </Suspense>
           </TabPanel>
