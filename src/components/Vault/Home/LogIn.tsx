@@ -92,13 +92,13 @@ export const LogIn = () => {
               onChange={onChangeHandler}
             />
           </FormLabel>
-          <Text onClick={onOpen} cursor="pointer">
+          <Text onClick={onOpen} cursor="pointer" fontWeight="bold">
             Password Forgotten?
           </Text>
           <Text cursor="pointer" onClick={() => setFormState(clearFormValues)}>
             Clear Fields
           </Text>
-          <Button type="submit" bg="#1AB188" w="100%" fontSize="1.5rem">
+          <Button type="submit" colorScheme="#1AB188" variant='outline' w="100%" fontSize="1.5rem" _hover={{bg:'none'}}>
             Log In
           </Button>
         </Flex>

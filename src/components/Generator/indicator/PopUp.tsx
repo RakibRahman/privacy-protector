@@ -20,7 +20,7 @@ const PopUp = () => {
       <Popover placement="auto">
         <PopoverTrigger>
           <Button bg="transparent" fontSize="26">
-            <MdInfo color="#2196F3" />
+            <MdInfo color="#f5f5f5" />
           </Button>
         </PopoverTrigger>
         <PopoverContent
@@ -32,7 +32,7 @@ const PopUp = () => {
           <PopoverCloseButton />
           <PopoverHeader>How to Create a Strong Password</PopoverHeader>
           <PopoverBody>
-            <Image src={Info} alt="pass strength" />
+            <Image src={Info} alt="pass strength" w='100%' h='200px' />
           </PopoverBody>
         </PopoverContent>
       </Popover>

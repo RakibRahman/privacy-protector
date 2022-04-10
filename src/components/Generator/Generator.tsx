@@ -9,14 +9,12 @@ const Generator: React.FC = () => {
     document.title = "Privacy Protector";
   }, []);
 
-  
   return (
     <Box px={5}>
       <WelcomeComponent />
       <Box borderBottom="1px solid #fff" my={3}></Box>
 
       <Box
-        // className="generator"
         bg={bg}
         borderRadius="xl"
         w={{ sm: "100%", lg: "600px" }}

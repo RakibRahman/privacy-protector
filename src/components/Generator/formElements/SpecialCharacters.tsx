@@ -21,8 +21,8 @@ const SpecialCharacters: React.FC<FormElementProps> = ({
       </FormLabel>
 
       <Text
-        color={formState.specialCharacters ? "green.500" : "red.500"}
-        fontWeight="bold"
+        color={formState.specialCharacters ? "#ffffff" : "#102E4A"}
+        fontWeight="extrabold"
       >
         (~`@#$*...)
       </Text>

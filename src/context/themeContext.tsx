@@ -13,7 +13,7 @@ export function useTheme() {
 }
 
 export const ThemeProvider: FC = ({ children }) => {
-  const bg = useColorModeValue("#FF8641", "#14591D");
+  const bg = useColorModeValue("#1C77C3", "#14591D");
   const color = useColorModeValue("#f5f5f5", "#f5f5f5");
   
 

@@ -13,7 +13,7 @@ import { LogIn } from "./LogIn";
 const SignUp = lazy(() => import("./SignUp"));
 
 const Home = () => {
-  const bg = useColorModeValue("#6184D8", "#24313C");
+  const bg = useColorModeValue("#1C77C3", "#24313C");
   const color = useColorModeValue("#24313C", "#f5f5f5");
 
   return (

@@ -14,7 +14,7 @@ import { useAuth } from "../../../context/context";
 import { UserCredentialProps } from "../../../interfaces/vaultTypes";
 import Spinner from "../../../assets/spinner.svg";
 
- const SignUp = () => {
+const SignUp = () => {
   const initFormValues = {
     email: "",
     password: "",
@@ -93,7 +93,13 @@ import Spinner from "../../../assets/spinner.svg";
             />
           </FormLabel>
 
-          <Button type="submit" bg="#1AB188" w="100%" fontSize="1.5rem">
+          <Button
+            type="submit"
+            colorScheme="#1AB188"
+            variant="outline"
+            w="100%"
+            fontSize="1.5rem"
+          >
             Sign Up
           </Button>
         </Flex>

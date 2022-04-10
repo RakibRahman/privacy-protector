@@ -10,7 +10,7 @@ const Generator = lazy(() => import("./components/Generator/Generator"));
 const Vault = lazy(() => import("./components/Vault/Vault"));
 
 export const App = () => {
-  const mainBg = useColorModeValue("#7F96FF", "#0a210f");
+  const mainBg = useColorModeValue("#40BCD8", "#0a210f");
 
   return (
     <>
