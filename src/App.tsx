@@ -2,8 +2,9 @@ import React, { lazy, Suspense } from "react";
 import { Flex, Box, useColorModeValue } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/NavBar";
-import { Footer } from "./components/Footer";
+// import { Footer } from "./components/Footer";
 import { FallBack } from "./components/FallBack/FallBack";
+import ErrorPage from "./components/ErrorPage";
 import { ThemeProvider } from "./context/themeContext";
 
 const Generator = lazy(() => import("./components/Generator/Generator"));
@@ -30,6 +31,9 @@ export const App = () => {
                   <Route path="/" exact component={Generator} />
                   <Route path="/vault" component={Vault} />
                 </Suspense>
+                <Route path="*">
+                  <ErrorPage />
+                </Route>
               </Switch>
             </Box>
             {/* <Footer /> */}

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "../../context/context";
 import Home from "./Home/Home";
 import { FallBack } from "../FallBack/FallBack";
+import ErrorPage from "../ErrorPage";
 const DashBoard = lazy(() => import("./DashBoard/DashBoard"));
 const UpdateProfile = lazy(() => import("./DashBoard/UpdateProfile"));
 
@@ -27,6 +28,9 @@ const Vault = () => {
                 <UpdateProfile />
               </Route>
             </Suspense>
+            <Route path="*">
+              <ErrorPage />
+            </Route>
           </Switch>
         </AuthProvider>
       </Router>
