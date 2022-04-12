@@ -7,14 +7,14 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-
+import { Link } from 'react-router-dom';
 import BG from "../../assets/bg.svg";
 import Emergency from "../../assets/emergency.png";
 import { useTheme } from "../../context/themeContext";
 
 export const WelcomeComponent = () => {
   const { color } = useTheme()!;
-  const secondaryColor = useColorModeValue("#000000", "#ae2012");
+  const secondaryColor = useColorModeValue("#000000", "#ef4136");
 
   return (
     <Flex
@@ -62,9 +62,11 @@ export const WelcomeComponent = () => {
         </Text>
         <Text color={color} textAlign="center">
           Notice: Please use{" "}
-          <Text as="strong" fontWeight="extrabold" color={secondaryColor}>
-            Vault
-          </Text>{" "}
+        <Link to='/vault/home'>
+            <Text as="strong" fontWeight="extrabold" color={secondaryColor}>
+              Vault
+            </Text>{" "}
+        </Link>
           to keep your password{" "}
           <Text fontWeight="extrabold" as="strong" color={secondaryColor}>
             safe.

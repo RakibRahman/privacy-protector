@@ -14,7 +14,7 @@ const Vault = () => {
 
   return (
     <>
-      <Router>
+     
         <AuthProvider>
           <Switch>
             <Route exact path="/vault/home">
@@ -28,12 +28,12 @@ const Vault = () => {
                 <UpdateProfile />
               </Route>
             </Suspense>
-            <Route path="*">
+            <Route path="/vault/*">
               <ErrorPage />
             </Route>
           </Switch>
         </AuthProvider>
-      </Router>
+   
     </>
   );
 };

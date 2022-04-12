@@ -43,10 +43,10 @@ const SliderComponent: React.FC<SliderProps> = ({
             <SliderFilledTrack
               bg={
                 formState.passLength < 20
-                  ? "#c52121"
+                  ? "#ffffff"
                   : formState.passLength > 45
                   ? "#ffd850"
-                  : "#408b16"
+                  : "#5dc633"
               }
             />
           </SliderTrack>
@@ -60,10 +60,10 @@ const SliderComponent: React.FC<SliderProps> = ({
             fontSize="xl"
             color={
               formState.passLength < 20
-                ? "#c52121"
+                ? "#ffffff"
                 : formState.passLength > 45
                 ? "#ffd850"
-                : "#408b16"
+                : "#5dc633"
             }
             fontWeight="bold"
           >

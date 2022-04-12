@@ -13,7 +13,7 @@ const useToaster = (
     status: toastStatus,
     duration: 4000,
     isClosable: true,
-    position: "bottom",
+    position: "top",
     variant:'solid',
   });
 

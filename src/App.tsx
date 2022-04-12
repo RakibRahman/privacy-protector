@@ -31,7 +31,7 @@ export const App = () => {
                   <Route path="/" exact component={Generator} />
                   <Route path="/vault" component={Vault} />
                 </Suspense>
-                <Route path="*">
+                <Route path="/*">
                   <ErrorPage />
                 </Route>
               </Switch>
