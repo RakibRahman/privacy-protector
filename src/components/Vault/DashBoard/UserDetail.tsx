@@ -20,7 +20,7 @@ import {
   useDisclosure,
   useClipboard,
   Stack,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { CollectionProps } from "../../../interfaces/vaultTypes";
 import { useFireStore } from "../../../hooks/useFireStore";
@@ -38,7 +38,6 @@ import {
 import { AddDataProps } from "../../../interfaces/vaultTypes";
 
 const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
-
   const bg = useColorModeValue("#f5f5f5", "#2B4141");
   const color = useColorModeValue("#2B4141", "#f5f5f5");
   const initFormValues = {
@@ -75,7 +74,6 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
     } catch {
       console.log("Something Went Wrong");
     } finally {
-      setFormState(initFormValues);
       onClose();
       setLoading(false);
     }
@@ -116,7 +114,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
         </Text>
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size='sm'>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size="sm">
         <ModalOverlay />
         <ModalContent bg={bg} color={color}>
           <ModalHeader>Login Details</ModalHeader>
@@ -253,7 +251,7 @@ const UserDetail: React.FC<{ login: CollectionProps }> = ({ login }) => {
                 <Button
                   disabled={loading}
                   bg="#C73636"
-                  variant='outline'
+                  variant="outline"
                   color="white"
                   mr="4"
                   onClick={() => deleteUserLogin(login.id)}
