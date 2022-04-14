@@ -38,6 +38,7 @@ const UserAccounts: React.FC<IProps> = ({ userData }) => {
             borderColor="white"
             w="100%"
             type="text"
+            color="#f5f5f5"
             placeholder="Search UserName or Site"
             _placeholder={{ opacity: 1, color: "#f5f5f5" }}
             onChange={onSearchHandler}

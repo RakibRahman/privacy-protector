@@ -30,11 +30,13 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
       gridGap="2"
     >
       <Input
+        color="#ffffff"
         focusBorderColor="#1BAF72"
         type="text"
         w="100%"
         minH="40px"
-        p="2"
+        p={2}
+        fontSize="1rem"
         borderColor="#f5f5f5"
         value={generatedPassword}
         onChange={onChange}
@@ -45,7 +47,7 @@ const Password: React.FC<PasswordProps> = ({ generatedPassword, onChange }) => {
       <Button
         _hover={{
           background: "none",
-          color: "teal.500",
+          opacity: 0.5
         }}
         cursor="copy"
         borderRadius="lg"

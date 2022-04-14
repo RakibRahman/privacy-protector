@@ -72,6 +72,7 @@ const UpdateProfile = React.memo(() => {
               name="email"
               value={formState.email}
               onChange={onChangeHandler}
+              _placeholder={{ color: "gray.500" }}
             />
           </FormLabel>
           <FormLabel>
@@ -83,6 +84,7 @@ const UpdateProfile = React.memo(() => {
               name="password"
               value={formState.password}
               onChange={onChangeHandler}
+              _placeholder={{ color: "gray.500" }}
             />
           </FormLabel>
           <FormLabel>
@@ -94,6 +96,7 @@ const UpdateProfile = React.memo(() => {
               name="repeatPassword"
               value={formState.repeatPassword}
               onChange={onChangeHandler}
+              _placeholder={{ color: "gray.500" }}
             />
           </FormLabel>
 

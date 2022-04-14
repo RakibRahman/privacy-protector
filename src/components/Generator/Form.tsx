@@ -97,7 +97,7 @@ export const Form: React.FC = () => {
         <Button
           _hover={{
             background: "none",
-            color: "teal.500",
+            opacity: 0.5
           }}
           type="submit"
           // bg="#1BAF72"

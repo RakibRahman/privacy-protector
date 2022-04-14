@@ -26,7 +26,7 @@ export const Navbar = () => {
       w="100%"
       // bgGradient="linear(to-l, #0BAB64,#3BB78F)"
       bg={bg}
-      borderBottom="1px solid #fff"
+      borderBottom="2px solid #fff"
     >
       <Flex gridGap="2" align="center">
         <Image src={Safe} boxSize="40px" alt="logo" />
@@ -43,7 +43,13 @@ export const Navbar = () => {
         align="center"
       >
         <Link to="/vault/home">Vault</Link>
-        <Button _hover={{bg:'none'}} _focus={{border:'none'}} fontSize='xl' bg="none" onClick={toggleColorMode}>
+        <Button
+          _hover={{ bg: "none" }}
+          _focus={{ border: "none" }}
+          fontSize="xl"
+          bg="none"
+          onClick={toggleColorMode}
+        >
           {colorMode === "light" ? <FaMoon /> : <FaSun />}
         </Button>
       </Flex>
