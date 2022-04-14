@@ -12,7 +12,7 @@ const Generator: React.FC = () => {
   return (
     <Box px={5}>
       <WelcomeComponent />
-      <Box borderBottom="1px solid #fff" my={3}></Box>
+      <Box borderBottom="1px solid #ffffff" my={3}></Box>
 
       <Box
         bg={bg}
@@ -20,7 +20,7 @@ const Generator: React.FC = () => {
         w={{ sm: "100%", lg: "600px" }}
         mx="auto"
         my="10px"
-        p="4"
+        p={4}
       >
         <Form />
       </Box>
