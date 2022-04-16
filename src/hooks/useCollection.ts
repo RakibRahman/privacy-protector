@@ -38,7 +38,7 @@ export const useCollection = (_query: [string, any, string]) => {
     getUserData();
     return () => {
       isMounted = false;
-      getUserData();
+      // getUserData();
     };
   }, [ref, queryRef]);
   return { userData, error, loading };
