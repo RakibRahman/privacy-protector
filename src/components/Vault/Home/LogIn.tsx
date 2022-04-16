@@ -23,8 +23,8 @@ import { ResetPassword } from "./ResetPassword";
 
 export const LogIn = () => {
   const initFormValues = {
-    email: "super.admin@gmail.com",
-    password: "@superadmin#",
+    email: "",
+    password: "",
   };
   const clearFormValues = {
     email: "",
@@ -98,23 +98,29 @@ export const LogIn = () => {
           <Text cursor="pointer" onClick={() => setFormState(clearFormValues)}>
             Clear Fields
           </Text>
-          <Button type="submit" colorScheme="#1AB188" variant='outline' w="100%" fontSize="1.5rem" _hover={{bg:'none'}}>
+          <Button
+            type="submit"
+            colorScheme="#1AB188"
+            variant="outline"
+            w="100%"
+            fontSize="1.5rem"
+            _hover={{ bg: "none" }}
+          >
             Log In
           </Button>
         </Flex>
       </form>
-   
-        <Modal isOpen={isOpen} onClose={onClose} isCentered size='sm'>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Recover Password</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <ResetPassword onClose={onClose} />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
- 
+
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size="sm">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Recover Password</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <ResetPassword onClose={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
