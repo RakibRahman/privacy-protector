@@ -1,11 +1,11 @@
 # Privacy Protector
 
-### To use this application **Node.js** must be installed on your pc.
+A Full-stack Privacy Manager App that helps you to be secure.
 
-How To Run:
+- Create Strong Passwords with multiple available options.
+- Test your password strength.
+- Save your logins to the vault and access anytime anywhere.
+- Add,delete,update your login details.
+- Dark mode
 
-- Extract the application
-- In the project directory,open the terminal and run `npm install`
-- To run the application in development mode - `npm start`
-- TO run the application in production mode - `npm run build`
-
+Tech Used: React.js,Typescript,Firebase,Chakra-UI
